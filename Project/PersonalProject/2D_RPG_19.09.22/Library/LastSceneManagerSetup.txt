@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/BayatGames/Free Platform Game Assets/Scenes/1.tutorial.unity
+- path: Assets/BayatGames/Free Platform Game Assets/Scenes/0.start.unity
   isLoaded: 1
   isActive: 1

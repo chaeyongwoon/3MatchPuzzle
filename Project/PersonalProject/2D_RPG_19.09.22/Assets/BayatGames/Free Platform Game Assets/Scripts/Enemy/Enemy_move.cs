@@ -111,7 +111,7 @@ public class Enemy_move : MonoBehaviour
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
-        DataController.instance.gameData.Money += real_damage;
+        DataController.instance.gameData.Money += Mathf.Floor(real_damage);
 
         if (current_health <= 0)
         {

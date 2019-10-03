@@ -79,7 +79,7 @@ public class DataController : MonoBehaviour {
     }
     private void OnApplicationQuit()
     {
-        SaveGameData();
+        //SaveGameData();
     }
     private void Start()
     {

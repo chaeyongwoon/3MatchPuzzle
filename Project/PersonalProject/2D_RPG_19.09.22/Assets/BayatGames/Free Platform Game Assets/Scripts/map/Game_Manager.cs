@@ -40,9 +40,11 @@ public class Game_Manager : MonoBehaviour
 
     public Text money;
 
-    public GameObject shop_panel;
+    public GameObject shop_panel,pause_panel;
 
     public GameObject[] Color_image;
+
+    public GameObject[] obj;
 
     /// ////////////////////////////////////
 
@@ -235,4 +237,44 @@ public class Game_Manager : MonoBehaviour
 
         }
     }
+
+    public void Pause_panel_open()
+    {
+        pause_panel.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+
+    public void Pause_panel_close()
+    {
+        Time.timeScale = 1f;
+        pause_panel.SetActive(false);
+    }
+
+    public void Save_data()
+    {
+        
+        DataController.instance.SaveGameData();
+    }
+
+    public void Menu()
+    {
+        pause_panel.SetActive(false);
+        Time.timeScale = 1f;
+        Destroy(obj[0]);
+        Destroy(obj[1]);
+        Destroy(obj[2]);
+        Destroy(obj[3]);
+        Destroy(obj[4]);
+
+
+        SceneManager.LoadScene("0.start");
+    }
+    public void Quit()
+    {
+        pause_panel.SetActive(false);
+        Time.timeScale = 1f;
+
+    }
+
 }
