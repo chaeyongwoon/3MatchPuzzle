@@ -102,8 +102,8 @@ public class Player_attack_health : MonoBehaviour
     public void Dead()
     {
 
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         DataController.instance.gameData.Current_health = 50f;
+        SceneManager.LoadScene("2.town");
     }
 
     public void Color_Change_Red()

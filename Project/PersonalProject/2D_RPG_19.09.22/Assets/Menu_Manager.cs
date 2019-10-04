@@ -44,6 +44,9 @@ public class Menu_Manager : MonoBehaviour {
         obj[2].SetActive(true);
         obj[3].SetActive(true);
 
+        Game_Manager.instance.Start();
+
+
         SceneManager.LoadScene("1.tutorial");
 
     }
@@ -58,12 +61,13 @@ public class Menu_Manager : MonoBehaviour {
         obj[2].SetActive(true);
         obj[3].SetActive(true);
 
+        Game_Manager.instance.Start();
         SceneManager.LoadScene("2.town");
     }
 
     public void Exit_game()
     {
-
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
 }
