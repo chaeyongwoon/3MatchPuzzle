@@ -13,6 +13,9 @@ public class Player_attack_health : MonoBehaviour
     public GameObject[] bullet;
     public Vector2 fire_position;
 
+    public bool isdamaged = false;
+
+
     /*
     public float Max_health = 100;
     public float Current_health = 100;
@@ -64,6 +67,11 @@ public class Player_attack_health : MonoBehaviour
         }
 
 
+        if (transform.position.y <= -5f)
+        {
+            Dead();
+        }
+
     }
 
 
@@ -90,12 +98,23 @@ public class Player_attack_health : MonoBehaviour
 
     public void Take_Damage(float damage)
     {
-        DataController.instance.gameData.Current_health -= damage * (100 - DataController.instance.gameData.Defend) * 0.01f * Random.Range(0.8f,1.4f);
-
-        if (DataController.instance.gameData.Current_health <= 0f)
+        if (isdamaged == false)
         {
-            Dead();
+            isdamaged = true;
+            DataController.instance.gameData.Current_health -= damage * (100 - DataController.instance.gameData.Defend) * 0.01f * Random.Range(0.8f, 1.4f);
+
+            if (DataController.instance.gameData.Current_health <= 0f)
+            {
+                Dead();
+            }
+            StartCoroutine(Rehit());
         }
+    }
+
+    public IEnumerator Rehit()
+    {
+        yield return new WaitForSeconds(1f);
+        isdamaged = false;
     }
 
 
@@ -152,6 +171,14 @@ public class Player_attack_health : MonoBehaviour
     {
         transform.position = new Vector2(0f, 3f);
         Camera.main.transform.position = new Vector3(0, 3, -10);
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.transform.CompareTag("To_town"))
+            SceneManager.LoadScene("2.town");
+
+
     }
 
 }

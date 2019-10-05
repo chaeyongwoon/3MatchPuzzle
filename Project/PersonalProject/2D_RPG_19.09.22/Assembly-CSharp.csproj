@@ -57,6 +57,7 @@
      <Compile Include="Assets\BayatGames\Free Platform Game Assets\Scripts\Data\GameData.cs" />
      <Compile Include="Assets\BayatGames\Free Platform Game Assets\Scripts\Enemy\destroy.cs" />
      <Compile Include="Assets\BayatGames\Free Platform Game Assets\Scripts\Enemy\Enemy_move.cs" />
+     <Compile Include="Assets\BayatGames\Free Platform Game Assets\Scripts\map\chest.cs" />
      <Compile Include="Assets\BayatGames\Free Platform Game Assets\Scripts\map\dontdestroy.cs" />
      <Compile Include="Assets\BayatGames\Free Platform Game Assets\Scripts\map\example.cs" />
      <Compile Include="Assets\BayatGames\Free Platform Game Assets\Scripts\map\Game_Manager.cs" />

@@ -36,6 +36,11 @@ public class player_bullet : MonoBehaviour {
         if (collision.transform.CompareTag("Enemy")){
             Destroy(this.gameObject);
         }
+
+        if (collision.transform.CompareTag("Chest"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }

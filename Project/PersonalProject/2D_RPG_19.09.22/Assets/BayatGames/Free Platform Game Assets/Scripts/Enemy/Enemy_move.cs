@@ -28,6 +28,7 @@ public class Enemy_move : MonoBehaviour
     public CapsuleCollider2D cap_col;
     public Rigidbody2D rb;
 
+    public float revival_term = 5f;
 
 
     public enum Color
@@ -129,7 +130,7 @@ public class Enemy_move : MonoBehaviour
         rend.enabled = false;
         hp_slider.gameObject.SetActive(false);
         //gameObject.SetActive(false);
-        Invoke("revival", 3f);
+        Invoke("revival", revival_term);
 
     }
 

@@ -69,15 +69,23 @@ public class Game_Manager : MonoBehaviour
         max_health_level.text = string.Format("(LV. {0})", DataController.instance.gameData.Max_health_level);
         max_health_value.text = string.Format("{0}", DataController.instance.gameData.Max_health);
         max_health_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Max_health_level);
-        defend_level.text = string.Format("(LV. {0}",DataController.instance.gameData.Defend_level);
+        defend_level.text = string.Format("(LV. {0})",DataController.instance.gameData.Defend_level);
         defend_value.text = string.Format("{0}%", DataController.instance.gameData.Defend);
         defend_upgrade_price.text = string.Format("{0}", 1 + 100 * DataController.instance.gameData.Defend_level);
-        healing_level.text = string.Format("(LV. {0}", DataController.instance.gameData.Healing_level);
+        healing_level.text = string.Format("(LV. {0})", DataController.instance.gameData.Healing_level);
         healing_value.text = string.Format("{0}", DataController.instance.gameData.Healing);
         healing_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Healing_level);
-        Reload_level.text = string.Format("(LV. {0}",  DataController.instance.gameData.Reload_level);
+        Reload_level.text = string.Format("(LV. {0})",  DataController.instance.gameData.Reload_level);
         Reload_value.text = string.Format("{0}s", DataController.instance.gameData.Reload);
         Reload_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Reload_level);
+
+        if (DataController.instance.gameData.Reload_level == 7)
+        {
+            Reload.text = string.Format("Reload : 0.1s");
+            Reload_level.text = string.Format("(LV.MAX)");
+            Reload_value.text = string.Format("0.1s");
+            Reload_upgrade_price.text = string.Format("Max");
+        }
     }
 
     // Update is called once per frame
@@ -103,7 +111,7 @@ public class Game_Manager : MonoBehaviour
             DataController.instance.gameData.Damage += 10 * DataController.instance.gameData.Damage_level;
             DataController.instance.gameData.Damage_level += 1;
             damage.text = string.Format("Damage : {0}", DataController.instance.gameData.Damage);
-            damage_level.text = string.Format("(LV.{0}",  DataController.instance.gameData.Damage_level);
+            damage_level.text = string.Format("(LV.{0})",  DataController.instance.gameData.Damage_level);
             damage_value.text = string.Format("{0}", DataController.instance.gameData.Damage);
             damage_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Damage_level);
         }
@@ -115,7 +123,7 @@ public class Game_Manager : MonoBehaviour
             DataController.instance.gameData.Money -= 100 * DataController.instance.gameData.Max_health_level;
             DataController.instance.gameData.Max_health_level += 1;
             DataController.instance.gameData.Max_health = 100 + 10f * DataController.instance.gameData.Max_health_level;
-            max_health_level.text = string.Format("(LV.{0}", DataController.instance.gameData.Max_health_level);
+            max_health_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Max_health_level);
             max_health_value.text = string.Format("{0}", DataController.instance.gameData.Max_health);
             max_health_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Max_health_level);
         }
@@ -130,7 +138,7 @@ public class Game_Manager : MonoBehaviour
                 DataController.instance.gameData.Defend_level += 1;
                 DataController.instance.gameData.Defend = 1 + 1f * DataController.instance.gameData.Defend_level;
                 defend.text = string.Format("Defend : {0}%",  DataController.instance.gameData.Defend);
-                defend_level.text = string.Format("(LV.{0}", DataController.instance.gameData.Defend_level);
+                defend_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Defend_level);
                 defend_value.text = string.Format("{0}%", DataController.instance.gameData.Defend);
                 defend_upgrade_price.text = string.Format("{0}",100 * DataController.instance.gameData.Defend_level);
                 if (DataController.instance.gameData.Defend_level == 99)
@@ -148,7 +156,7 @@ public class Game_Manager : MonoBehaviour
             DataController.instance.gameData.Healing_level += 1;
             DataController.instance.gameData.Healing = 0 + 0.2f * DataController.instance.gameData.Healing_level;
             healing.text = string.Format("Healing(1s) : {0}",  DataController.instance.gameData.Healing);
-            healing_level.text = string.Format("(LV.{0}", DataController.instance.gameData.Healing_level);
+            healing_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Healing_level);
             healing_value.text = string.Format("{0}", DataController.instance.gameData.Healing);
             healing_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Healing_level);
         }
@@ -163,7 +171,7 @@ public class Game_Manager : MonoBehaviour
                 DataController.instance.gameData.Reload_level += 1;
                 DataController.instance.gameData.Reload = 0.7f - 0.1f * DataController.instance.gameData.Reload_level;
                 Reload.text = string.Format("Reload : {0}s", DataController.instance.gameData.Reload);
-                Reload_level.text = string.Format("(LV.{0}", DataController.instance.gameData.Reload_level);
+                Reload_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Reload_level);
                 Reload_value.text = string.Format("{0}s", DataController.instance.gameData.Reload);
                 Reload_upgrade_price.text = string.Format("{0}", 1000 * DataController.instance.gameData.Reload_level);
                 if (DataController.instance.gameData.Reload_level == 7)
