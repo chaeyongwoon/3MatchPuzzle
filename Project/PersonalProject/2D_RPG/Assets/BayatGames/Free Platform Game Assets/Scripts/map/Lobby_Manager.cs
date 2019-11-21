@@ -4,27 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Lobby_Manager : MonoBehaviour {
+public class Lobby_Manager : MonoBehaviour
+{
 
     public Game_Manager gm;
     public GameObject[] portal_panel;
     public int stage_num = 0;
 
     public Text Infinite_level_text;
-    void Start()
-    {
-      
-    }
-	
 
-	// Update is called once per frame
-	void Update () {
+    public Transform player;
+
+
+    // Update is called once per frame
+    void Update()
+    {
         if (!gm)
         {
             gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
         }
-                    
-	}
+
+        if (!player)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+    }
 
 
 
@@ -49,15 +53,19 @@ public class Lobby_Manager : MonoBehaviour {
 
     public void Enter_stage()
     {
+        gm.stage_level = 1;
+        player.transform.position = new Vector2(0f, 3f);
+
         switch (stage_num)
         {
             case 0:
-                gm.stage_level = 1;
+                Camera.main.transform.position = new Vector3(0, 3, -10);
                 SceneManager.LoadScene("3.stage1");
                 break;
 
             case 1:
                 gm.stage_level = 3;
+
                 SceneManager.LoadScene("4.stage2");
                 break;
 

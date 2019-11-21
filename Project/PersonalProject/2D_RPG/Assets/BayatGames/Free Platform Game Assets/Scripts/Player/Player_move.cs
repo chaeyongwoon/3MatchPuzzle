@@ -17,11 +17,12 @@ public class Player_move : MonoBehaviour {
 	void Start () {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        h = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        h = Input.GetAxis("Horizontal");
+       // h = Input.GetAxis("Horizontal");
 
         if (h < 0f)
         {
@@ -60,6 +61,24 @@ public class Player_move : MonoBehaviour {
         if (collision.transform.CompareTag("Ground") || collision.transform.CompareTag("Enemy"))
             isJump = false; ;
         animator.SetBool("Jump", false);
+    }
+
+    public void LeftDown()
+    {
+        h -= 1;
+    }
+
+    public void LeftUp()
+    {
+        h += 1;
+    }
+    public void RightDown()
+    {
+        h += 1;
+    }
+    public void RightUp()
+    {
+        h -= 1;
     }
          
 }

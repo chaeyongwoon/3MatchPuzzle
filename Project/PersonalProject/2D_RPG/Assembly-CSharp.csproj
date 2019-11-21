@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E596DC49-1245-9512-B3AC-A893F5E196F4}</ProjectGuid>
+    <ProjectGuid>{FB3C3029-E698-A56A-BB91-36396B7763EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -89,16 +89,16 @@
      <None Include="Assets\UJoystick\ReadMe.txt" />
      <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG_19.09.22/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG_19.09.22/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG_19.09.22/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG_19.09.22/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/Git/gameprogramming/Project/PersonalProject/2D_RPG/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>E:/Unity/2018.2.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

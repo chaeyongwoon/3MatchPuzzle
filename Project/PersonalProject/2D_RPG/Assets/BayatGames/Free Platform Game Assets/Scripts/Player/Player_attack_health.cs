@@ -121,6 +121,9 @@ public class Player_attack_health : MonoBehaviour
     public void Dead()
     {
 
+        transform.position = new Vector2(0f, 3f);
+        Camera.main.transform.position = new Vector3(0, 3, -10);
+
         DataController.instance.gameData.Current_health = 50f;
         SceneManager.LoadScene("2.town");
     }
@@ -169,14 +172,19 @@ public class Player_attack_health : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene , LoadSceneMode mode)
     {
-        transform.position = new Vector2(0f, 3f);
-        Camera.main.transform.position = new Vector3(0, 3, -10);
+     //   transform.position = new Vector2(0f, 3f);
+      //  Camera.main.transform.position = new Vector3(0, 3, -10);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.transform.CompareTag("To_town"))
+        {
+            transform.position = new Vector2(0f, 3f);
+            Camera.main.transform.position = new Vector3(0, 3, -10);
+
             SceneManager.LoadScene("2.town");
+        }
 
 
     }
