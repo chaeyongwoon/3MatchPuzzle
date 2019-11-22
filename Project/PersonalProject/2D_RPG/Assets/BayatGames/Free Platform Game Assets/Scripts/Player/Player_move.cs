@@ -22,7 +22,24 @@ public class Player_move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       // h = Input.GetAxis("Horizontal");
+        // h = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            LeftDown();
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            LeftUp();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            RightDown();
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            RightUp();
+        }
 
         if (h < 0f)
         {
@@ -65,20 +82,20 @@ public class Player_move : MonoBehaviour {
 
     public void LeftDown()
     {
-        h -= 1;
+        h = -1;
     }
 
     public void LeftUp()
     {
-        h += 1;
+        h = 0;
     }
     public void RightDown()
     {
-        h += 1;
+        h = 1;
     }
     public void RightUp()
     {
-        h -= 1;
+        h = 0;
     }
          
 }

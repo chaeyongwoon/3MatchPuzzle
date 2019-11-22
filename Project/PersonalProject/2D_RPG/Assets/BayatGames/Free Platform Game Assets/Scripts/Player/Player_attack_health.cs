@@ -15,27 +15,8 @@ public class Player_attack_health : MonoBehaviour
 
     public bool isdamaged = false;
 
-
-    /*
-    public float Max_health = 100;
-    public float Current_health = 100;
-    public float Damage = 10;
-    public float Defend = 0f;
-    public float Healing = 0f;
-    public float Reroad = 0.6f;
-    public float reroad_term = 0f;
-
-    public float Damage_level = 1f;
-    public float Max_health_level = 1f;
-    public float Defend_level = 1f;
-    public float Healing_level = 1f;
-    public float Reroad_level = 1f;
-
-    public int color_num = 0;
-
-    public float Money = 0f;
-    public bool is_shoot = false;
-    */
+    public Rigidbody2D rb;
+    public float x_force, y_force;
 
     
 
@@ -43,11 +24,17 @@ public class Player_attack_health : MonoBehaviour
     void Start()
     {  
         StartCoroutine("Take_Heal");
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("3.stage1");
+        }
+
         DataController.instance.gameData.Reload_term += Time.deltaTime;
         fire_position = transform.position + transform.right * 2;
 
@@ -69,7 +56,7 @@ public class Player_attack_health : MonoBehaviour
 
         if (transform.position.y <= -5f)
         {
-            Dead();
+          //  Dead();
         }
 
     }
@@ -96,12 +83,16 @@ public class Player_attack_health : MonoBehaviour
     }
 
 
-    public void Take_Damage(float damage)
+    public void Take_Damage(float damage, Vector3 col_pos)
     {
         if (isdamaged == false)
         {
             isdamaged = true;
             DataController.instance.gameData.Current_health -= damage * (100 - DataController.instance.gameData.Defend) * 0.01f * Random.Range(0.8f, 1.4f);
+
+            Vector3 direction = (transform.position - col_pos).normalized;
+
+            rb.AddForce(new Vector2(direction.x*x_force, y_force));
 
             if (DataController.instance.gameData.Current_health <= 0f)
             {

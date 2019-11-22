@@ -18,10 +18,11 @@ public class Enemy_move : MonoBehaviour
     public float max_health = 100;
     public float current_health = 100;
     public float damage = 10;
-    
+
     public Text damage_text;
     public int damage_num = 1;
     public bool isdead = false;
+    public bool isjump = false;
 
     public Slider hp_slider;
 
@@ -29,7 +30,7 @@ public class Enemy_move : MonoBehaviour
     public Rigidbody2D rb;
 
     public float revival_term = 5f;
-
+    public float JumpPow = 30f;
 
     public enum Color
     {
@@ -58,11 +59,12 @@ public class Enemy_move : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
-        max_health = 100+  Mathf.Pow(10, gm.stage_level);
+        max_health = 100 + Mathf.Pow(10, gm.stage_level);
         current_health = max_health;
         damage = 10 + Mathf.Pow(4, gm.stage_level);
-        
+
         hp_slider.value = current_health / max_health;
+
     }
 
     // Update is called once per frame
@@ -77,6 +79,17 @@ public class Enemy_move : MonoBehaviour
                     transform.position,
                     new Vector2(Target_player.position.x, transform.position.y),
                     Time.deltaTime * speed);
+
+                if (Target_player.transform.position.y > transform.position.y + 1)
+                {
+                    if (isjump == false)
+                    {
+                        //rb.AddForce(new Vector2(0, 300f));
+                        rb.velocity = new Vector2(rb.velocity.x, JumpPow);
+                        isjump = true;
+                        StartCoroutine(ReJump());
+                    }
+                }
             }
         }
     }
@@ -87,28 +100,28 @@ public class Enemy_move : MonoBehaviour
         {
             if (state.ToString() == collision.gameObject.GetComponent<player_bullet>().state.ToString())
             {
-              
+
                 Take_damage(DataController.instance.gameData.Damage);
             }
         }
 
         if (collision.transform.CompareTag("Player"))
         {
-            player.Take_Damage(damage);
+            player.Take_Damage(damage, transform.position);
         }
 
     }
 
-    
+
     void Take_damage(float damage)
     {
         float real_damage = damage * Random.Range(0.8f, 1.4f);
-        
+
         current_health -= real_damage /* * (100 - defend) * 0.01f*/;
         hp_slider.value = current_health / max_health;
 
         Text obj = Instantiate(damage_text, transform.position, transform.rotation);
-        obj.text = "" + Mathf.Floor( real_damage); /* * (100 - defend) * 0.01f*/
+        obj.text = "" + Mathf.Floor(real_damage); /* * (100 - defend) * 0.01f*/
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
@@ -124,7 +137,7 @@ public class Enemy_move : MonoBehaviour
     }
     void Dead()
     {
-        isdead = true;        
+        isdead = true;
         cap_col.isTrigger = true;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         rend.enabled = false;
@@ -148,4 +161,9 @@ public class Enemy_move : MonoBehaviour
         //gameObject.SetActive(true);
     }
 
+    public IEnumerator ReJump()
+    {
+        yield return new WaitForSeconds(2f);
+        isjump = false;
+    }
 }

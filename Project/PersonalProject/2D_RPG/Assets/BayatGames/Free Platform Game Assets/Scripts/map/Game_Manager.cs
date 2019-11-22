@@ -92,7 +92,7 @@ public class Game_Manager : MonoBehaviour
     void Update()
     {
         player_health_slider.value = (DataController.instance.gameData.Current_health / DataController.instance.gameData.Max_health);
-        health.text = string.Format(" {0} / {1} ({2}%)",DataController.instance.gameData.Current_health ,DataController.instance.gameData.Max_health
+        health.text = string.Format(" {0} / {1} ({2}%)",Mathf.Floor( DataController.instance.gameData.Current_health) ,DataController.instance.gameData.Max_health
             , Mathf.Floor(DataController.instance.gameData.Current_health / DataController.instance.gameData.Max_health * 100));
         money.text = string.Format("{0}", DataController.instance.gameData.Money);
 
@@ -193,15 +193,15 @@ public class Game_Manager : MonoBehaviour
         max_health_level.text = string.Format("(LV. {0})", DataController.instance.gameData.Max_health_level);
         max_health_value.text = string.Format("{0}", DataController.instance.gameData.Max_health);
         max_health_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Max_health_level);
-        defend_level.text = string.Format("(LV. {0}", DataController.instance.gameData.Defend_level);
+        defend_level.text = string.Format("(LV. {0})", DataController.instance.gameData.Defend_level);
         defend_value.text = string.Format("{0}%", DataController.instance.gameData.Defend);
         defend_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Defend_level);
-        healing_level.text = string.Format("(LV. {0}", DataController.instance.gameData.Healing_level);
+        healing_level.text = string.Format("(LV. {0})", DataController.instance.gameData.Healing_level);
         healing_value.text = string.Format("{0}", DataController.instance.gameData.Healing);
         healing_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Healing_level);
-        Reload_level.text = string.Format("(LV. {0}", DataController.instance.gameData.Reload_level);
-        Reload_value.text = string.Format("{0}s", DataController.instance.gameData.Reload);
-        Reload_upgrade_price.text = string.Format("{0}", 1000 * DataController.instance.gameData.Reload_level);
+       // Reload_level.text = string.Format("(LV. {0}", DataController.instance.gameData.Reload_level);
+       // Reload_value.text = string.Format("{0}s", DataController.instance.gameData.Reload);
+       // Reload_upgrade_price.text = string.Format("{0}", 1000 * DataController.instance.gameData.Reload_level);
 
         shop_panel.SetActive(true);
     }
