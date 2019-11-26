@@ -15,9 +15,9 @@ public class Enemy_move : MonoBehaviour
 
     public float speed = 2f;
 
-    public float max_health = 100;
-    public float current_health = 100;
-    public float damage = 10;
+    public float max_health;
+    public float current_health;
+    public float damage;
 
     public Text damage_text;
     public int damage_num = 1;
@@ -84,8 +84,7 @@ public class Enemy_move : MonoBehaviour
                 {
                     if (isjump == false)
                     {
-                        //rb.AddForce(new Vector2(0, 300f));
-                        rb.velocity = new Vector2(rb.velocity.x, JumpPow);
+                        //rb.velocity = new Vector2(rb.velocity.x, JumpPow); // 일단 보류
                         isjump = true;
                         StartCoroutine(ReJump());
                     }

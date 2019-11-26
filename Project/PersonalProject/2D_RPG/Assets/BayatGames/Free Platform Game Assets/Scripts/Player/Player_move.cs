@@ -66,8 +66,8 @@ public class Player_move : MonoBehaviour {
         {
             isJump = true;
             animator.SetBool("Jump", true);
-            //rb.velocity = new Vector2(rb.velocity.x, JumpPower); 파워 5 정도면 충분
-            rb.AddForce(new Vector2(0f, JumpPower)); // 파워 400정도가 위 코드 5랑 비슷
+            rb.velocity = new Vector2(rb.velocity.x, JumpPower); // 파워 5 정도면 충분
+            //rb.AddForce(new Vector2(0f, JumpPower)); // 파워 400정도가 위 코드 5랑 비슷
         }
     }
 

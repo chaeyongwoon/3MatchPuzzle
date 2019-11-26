@@ -6,6 +6,7 @@ public class Camera_smooth_follow : MonoBehaviour {
 
 
     public GameObject Player;
+    public float Speed = 4f;
     private Vector3 target_pos;
     private float CameraZ = -10;
 
@@ -23,7 +24,7 @@ public class Camera_smooth_follow : MonoBehaviour {
         transform.position = Vector3.Lerp(
             transform.position,
             target_pos,
-            Time.deltaTime * 2f);
+            Time.deltaTime * Speed);
         
     }
 

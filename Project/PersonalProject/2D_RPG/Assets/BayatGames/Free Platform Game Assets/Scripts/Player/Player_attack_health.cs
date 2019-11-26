@@ -30,10 +30,6 @@ public class Player_attack_health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SceneManager.LoadScene("3.stage1");
-        }
 
         DataController.instance.gameData.Reload_term += Time.deltaTime;
         fire_position = transform.position + transform.right * 2;
@@ -48,15 +44,39 @@ public class Player_attack_health : MonoBehaviour
             Shoot();
         }
 
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            transform.position = new Vector2(0f, 3f);
+            Camera.main.transform.position = new Vector3(0, 3, -10);
             SceneManager.LoadScene("2.town");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            transform.position = new Vector2(0f, 3f);
+            Camera.main.transform.position = new Vector3(0, 3, -10);
+            SceneManager.LoadScene("3.stage1");
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            transform.position = new Vector2(0f, 3f);
+            Camera.main.transform.position = new Vector3(0, 3, -10);
+            SceneManager.LoadScene("4.stage2");
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            transform.position = new Vector2(0f, 3f);
+            Camera.main.transform.position = new Vector3(0, 3, -10);
+            SceneManager.LoadScene("5.stage_infinite");
+
         }
 
 
-        if (transform.position.y <= -5f)
+        if (transform.position.y <= -100f)
         {
-          //  Dead();
+            Dead();
         }
 
     }
@@ -111,7 +131,6 @@ public class Player_attack_health : MonoBehaviour
 
     public void Dead()
     {
-
         transform.position = new Vector2(0f, 3f);
         Camera.main.transform.position = new Vector3(0, 3, -10);
 
@@ -177,7 +196,18 @@ public class Player_attack_health : MonoBehaviour
             SceneManager.LoadScene("2.town");
         }
 
+        if (coll.transform.CompareTag("Hole"))
+        {
+            Dead();
+        }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Snow_storm"))
+        {
+            Dead();
+        }
     }
 
 }
