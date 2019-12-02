@@ -15,7 +15,7 @@ public class chest : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        max_health = 2000;
+        max_health = 10000;
         current_health = max_health;
 
 
@@ -41,7 +41,7 @@ public class chest : MonoBehaviour
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
-        DataController.instance.gameData.Money += Mathf.Floor(real_damage);
+        DataController.instance.gameData.Money += Mathf.Floor(real_damage) * 5;
 
         if (current_health <= 0)
         {

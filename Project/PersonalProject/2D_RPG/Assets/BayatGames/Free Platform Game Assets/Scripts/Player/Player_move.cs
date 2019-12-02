@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_move : MonoBehaviour {
+public class Player_move : MonoBehaviour
+{
 
 
     public Animator animator;
@@ -11,17 +12,24 @@ public class Player_move : MonoBehaviour {
     public float Speed = 5f;
     public float JumpPower = 5f;
     public bool isJump = true;
+    public bool isleft = false;
 
-   
+    public AudioSource audiosource;
+    public AudioClip jump_sound;
+
     // Use this for initialization
-	void Start () {
+    void Start()
+    {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audiosource = GetComponent<AudioSource>();
+        audiosource.clip = jump_sound;
         h = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         // h = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -41,20 +49,24 @@ public class Player_move : MonoBehaviour {
             RightUp();
         }
 
-        if (h < 0f)
+
+        if (isleft == true)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (h > 0f)
+        else if (isleft == false)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        rb.velocity = new Vector2(h * Speed, rb.velocity.y);
-        animator.SetFloat("Speed", rb.velocity.x);
 
-        if (Input.GetButton("Jump"))
+        if (!animator.GetBool("Dead"))
         {
-            Jump();
+            rb.velocity = new Vector2(h * Speed, rb.velocity.y);
+            animator.SetFloat("Speed", rb.velocity.x);
+            if (Input.GetButton("Jump"))
+            {
+                Jump();
+            }
         }
 
 
@@ -65,13 +77,15 @@ public class Player_move : MonoBehaviour {
         if (isJump == false)
         {
             isJump = true;
+            audiosource.clip = jump_sound;
+            audiosource.Play();
             animator.SetBool("Jump", true);
             rb.velocity = new Vector2(rb.velocity.x, JumpPower); // 파워 5 정도면 충분
             //rb.AddForce(new Vector2(0f, JumpPower)); // 파워 400정도가 위 코드 5랑 비슷
         }
     }
 
-   
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -83,6 +97,7 @@ public class Player_move : MonoBehaviour {
     public void LeftDown()
     {
         h = -1;
+        isleft = true;
     }
 
     public void LeftUp()
@@ -92,10 +107,11 @@ public class Player_move : MonoBehaviour {
     public void RightDown()
     {
         h = 1;
+        isleft = false;
     }
     public void RightUp()
     {
         h = 0;
     }
-         
+
 }

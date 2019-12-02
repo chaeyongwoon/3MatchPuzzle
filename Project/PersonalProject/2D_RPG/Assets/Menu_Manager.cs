@@ -35,7 +35,7 @@ public class Menu_Manager : MonoBehaviour {
         DataController.instance.gameData.Damage = 10 * DataController.instance.gameData.Damage_level;
         DataController.instance.gameData.Defend = 1 + 1f * DataController.instance.gameData.Defend_level;
         DataController.instance.gameData.Healing = 0 + 0.2f * DataController.instance.gameData.Healing_level;
-        DataController.instance.gameData.Reload = 0.7f - 0.1f * DataController.instance.gameData.Reload_level;
+        DataController.instance.gameData.Reload = 0.8f - 0.1f * DataController.instance.gameData.Reload_level;
         DataController.instance.gameData.Reload_term = 0;
 
 
@@ -67,7 +67,8 @@ public class Menu_Manager : MonoBehaviour {
 
     public void Exit_game()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
 }

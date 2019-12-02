@@ -16,17 +16,18 @@ public class Ice_ball : MonoBehaviour
 
     public Text damage_text;
     public Slider hp_slider;
+    public Rigidbody2D rb;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
-        
+        rb = GetComponent<Rigidbody2D>();
         
         origin_pos = transform.position;
-        max_health = 100 + Mathf.Pow(10, gm.stage_level);
+        max_health = 100 + 100* gm.stage_level;
         current_health = max_health;
-        damage = 10 + Mathf.Pow(4, gm.stage_level);
+        damage = 10 + 10*gm.stage_level;
     }
 
     
@@ -35,11 +36,11 @@ public class Ice_ball : MonoBehaviour
     {
         float real_damage = damage * Random.Range(0.8f, 1.4f);
 
-        current_health -= real_damage /* * (100 - defend) * 0.01f*/;
+        current_health -= real_damage;
         hp_slider.value = current_health / max_health;
 
         Text obj = Instantiate(damage_text, transform.position, transform.rotation);
-        obj.text = "" + Mathf.Floor(real_damage); /* * (100 - defend) * 0.01f*/
+        obj.text = "" + Mathf.Floor(real_damage);
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
@@ -53,8 +54,10 @@ public class Ice_ball : MonoBehaviour
 
     public void Revival()
     {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         transform.position = origin_pos;
         current_health = max_health;
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -66,7 +69,7 @@ public class Ice_ball : MonoBehaviour
 
         if (collision.transform.CompareTag("bullet"))
         {
-            Take_damage(DataController.instance.gameData.Damage);
+            Take_damage(damage);
         }
     }
 

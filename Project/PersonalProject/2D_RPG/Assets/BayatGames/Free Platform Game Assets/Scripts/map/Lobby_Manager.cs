@@ -42,6 +42,8 @@ public class Lobby_Manager : MonoBehaviour
     {
         stage_num = num;
         portal_panel[num].SetActive(true);
+
+        if (num == 2) gm.stage_level = 5;
     }
 
     public void Close_portal_panel()
@@ -53,24 +55,28 @@ public class Lobby_Manager : MonoBehaviour
 
     public void Enter_stage()
     {
-        gm.stage_level = 1;
-        player.transform.position = new Vector2(0f, 3f);
 
+                Camera.main.transform.position = new Vector3(0, 3, -10);
         switch (stage_num)
         {
             case 0:
-                Camera.main.transform.position = new Vector3(0, 3, -10);
+                gm.stage_level = 1;
+                player.transform.position = new Vector2(0f, 3f);
                 SceneManager.LoadScene("3.stage1");
                 break;
 
             case 1:
                 gm.stage_level = 3;
-
+                player.transform.position = new Vector2(0f, 3f);
+               
                 SceneManager.LoadScene("4.stage2");
                 break;
 
             case 2:
+                player.transform.position = new Vector2(-45f, 15f);
+               
                 SceneManager.LoadScene("5.stage_infinite");
+             
                 break;
         }
     }
@@ -88,9 +94,9 @@ public class Lobby_Manager : MonoBehaviour
     public void Stage_level_down()
     {
         gm.stage_level -= 1;
-        if (gm.stage_level <= 0)
+        if (gm.stage_level < 5)
         {
-            gm.stage_level = 1;
+            gm.stage_level = 5;
         }
         Infinite_level_text.text = "Level : " + gm.stage_level;
     }

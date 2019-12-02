@@ -23,6 +23,7 @@ public class Enemy_move : MonoBehaviour
     public int damage_num = 1;
     public bool isdead = false;
     public bool isjump = false;
+   
 
     public Slider hp_slider;
 
@@ -31,6 +32,7 @@ public class Enemy_move : MonoBehaviour
 
     public float revival_term = 5f;
     public float JumpPow = 30f;
+    public float dis = 10f;
 
     public enum Color
     {
@@ -59,9 +61,9 @@ public class Enemy_move : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
-        max_health = 100 + Mathf.Pow(10, gm.stage_level);
+        max_health = 100 + 100* gm.stage_level;
         current_health = max_health;
-        damage = 10 + Mathf.Pow(4, gm.stage_level);
+        damage = 10 + 10* gm.stage_level;
 
         hp_slider.value = current_health / max_health;
 
@@ -71,7 +73,7 @@ public class Enemy_move : MonoBehaviour
     void Update()
     {
 
-        if (Vector2.Distance(transform.position, Target_player.position) < 10f)
+        if (Vector2.Distance(transform.position, Target_player.position) < dis)
         {
             if (isdead == false)
             {

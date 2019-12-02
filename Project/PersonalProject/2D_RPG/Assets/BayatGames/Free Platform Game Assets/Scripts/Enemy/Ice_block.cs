@@ -16,6 +16,8 @@ public class Ice_block : MonoBehaviour
 
     public Slider hp_slider;
 
+    public Vector3 orign_pos;
+
     public enum Color
     {
         red,
@@ -32,9 +34,11 @@ public class Ice_block : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
 
-        max_health = 100 + Mathf.Pow(10, gm.stage_level);
+        max_health = 100 + 1000 * gm.stage_level;
         current_health = max_health;
         hp_slider.value = current_health / max_health;
+
+        orign_pos = transform.position;
     }
 
 
@@ -62,11 +66,19 @@ public class Ice_block : MonoBehaviour
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
-        DataController.instance.gameData.Money += Mathf.Floor(real_damage);
+        DataController.instance.gameData.Money += Mathf.Floor(real_damage) ;
 
         if (current_health <= 0)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
+    }
+
+    public void Revival()
+    {
+        transform.position = orign_pos;
+    
+        current_health = max_health;
+        hp_slider.value = current_health / max_health;
     }
 }

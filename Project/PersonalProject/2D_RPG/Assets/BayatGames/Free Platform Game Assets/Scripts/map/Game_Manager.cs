@@ -57,11 +57,11 @@ public class Game_Manager : MonoBehaviour
         }
 
         player_health_slider.value = (DataController.instance.gameData.Current_health / DataController.instance.gameData.Max_health);
-        damage.text = string.Format("Damage : {0}", DataController.instance.gameData.Damage);
+        damage.text = string.Format("공격력 : {0}", DataController.instance.gameData.Damage);
         health.text = string.Format(" {0} / {1}", DataController.instance.gameData.Current_health,DataController.instance.gameData.Max_health);
-        defend.text = string.Format("Defend : {0}", DataController.instance.gameData.Defend);
-        healing.text = "Healing(1s) : " + DataController.instance.gameData.Healing;
-        Reload.text = string.Format("Reload : {0}s", DataController.instance.gameData.Reload);
+        defend.text = string.Format("방어력 : {0}%", DataController.instance.gameData.Defend);
+        healing.text = string.Format("체력회복(1s) : {0}",DataController.instance.gameData.Healing);
+        Reload.text = string.Format("공격속도 : {0}s", DataController.instance.gameData.Reload);
 
         damage_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Damage_level);
         damage_value.text = string.Format("{0}", DataController.instance.gameData.Damage);
@@ -77,11 +77,11 @@ public class Game_Manager : MonoBehaviour
         healing_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Healing_level);
         Reload_level.text = string.Format("(LV. {0})",  DataController.instance.gameData.Reload_level);
         Reload_value.text = string.Format("{0}s", DataController.instance.gameData.Reload);
-        Reload_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Reload_level);
+        Reload_upgrade_price.text = string.Format("{0}", 1000 * DataController.instance.gameData.Reload_level);
 
         if (DataController.instance.gameData.Reload_level == 7)
         {
-            Reload.text = string.Format("Reload : 0.1s");
+            Reload.text = string.Format("공격속도 : 0.1s");
             Reload_level.text = string.Format("(LV.MAX)");
             Reload_value.text = string.Format("0.1s");
             Reload_upgrade_price.text = string.Format("Max");
@@ -108,9 +108,9 @@ public class Game_Manager : MonoBehaviour
         if (DataController.instance.gameData.Money >= 100 * DataController.instance.gameData.Damage_level)
         {
             DataController.instance.gameData.Money -= 100 * DataController.instance.gameData.Damage_level;
-            DataController.instance.gameData.Damage += 10 * DataController.instance.gameData.Damage_level;
+            DataController.instance.gameData.Damage += 1 * DataController.instance.gameData.Damage_level;
             DataController.instance.gameData.Damage_level += 1;
-            damage.text = string.Format("Damage : {0}", DataController.instance.gameData.Damage);
+            damage.text = string.Format("공격력 : {0}", DataController.instance.gameData.Damage);
             damage_level.text = string.Format("(LV.{0})",  DataController.instance.gameData.Damage_level);
             damage_value.text = string.Format("{0}", DataController.instance.gameData.Damage);
             damage_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Damage_level);
@@ -136,8 +136,8 @@ public class Game_Manager : MonoBehaviour
             {
                 DataController.instance.gameData.Money -= 100 * DataController.instance.gameData.Defend_level;
                 DataController.instance.gameData.Defend_level += 1;
-                DataController.instance.gameData.Defend = 1 + 1f * DataController.instance.gameData.Defend_level;
-                defend.text = string.Format("Defend : {0}%",  DataController.instance.gameData.Defend);
+                DataController.instance.gameData.Defend = 0 + 1f * DataController.instance.gameData.Defend_level;
+                defend.text = string.Format("방어력 : {0}%",  DataController.instance.gameData.Defend);
                 defend_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Defend_level);
                 defend_value.text = string.Format("{0}%", DataController.instance.gameData.Defend);
                 defend_upgrade_price.text = string.Format("{0}",100 * DataController.instance.gameData.Defend_level);
@@ -155,7 +155,7 @@ public class Game_Manager : MonoBehaviour
             DataController.instance.gameData.Money -= 100 * DataController.instance.gameData.Healing_level;
             DataController.instance.gameData.Healing_level += 1;
             DataController.instance.gameData.Healing = 0 + 0.2f * DataController.instance.gameData.Healing_level;
-            healing.text = string.Format("Healing(1s) : {0}",  DataController.instance.gameData.Healing);
+            healing.text = string.Format("체력회복(1s) : {0}",  DataController.instance.gameData.Healing);
             healing_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Healing_level);
             healing_value.text = string.Format("{0}", DataController.instance.gameData.Healing);
             healing_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Healing_level);
@@ -169,14 +169,14 @@ public class Game_Manager : MonoBehaviour
             {
                 DataController.instance.gameData.Money -= 1000 * DataController.instance.gameData.Reload_level;
                 DataController.instance.gameData.Reload_level += 1;
-                DataController.instance.gameData.Reload = 0.7f - 0.1f * DataController.instance.gameData.Reload_level;
-                Reload.text = string.Format("Reload : {0}s", DataController.instance.gameData.Reload);
+                DataController.instance.gameData.Reload = 0.8f - 0.1f * DataController.instance.gameData.Reload_level;
+                Reload.text = string.Format("공격속도 : {0}s", DataController.instance.gameData.Reload);
                 Reload_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Reload_level);
                 Reload_value.text = string.Format("{0}s", DataController.instance.gameData.Reload);
                 Reload_upgrade_price.text = string.Format("{0}", 1000 * DataController.instance.gameData.Reload_level);
                 if (DataController.instance.gameData.Reload_level == 7)
                 {
-                    Reload.text = string.Format("Reload : 0.1s");
+                    Reload.text = string.Format("공격속도 : 0.1s");
                     Reload_level.text = string.Format("(LV.MAX)");
                     Reload_value.text = string.Format("0.1s");
                     Reload_upgrade_price.text = string.Format("Max");
@@ -282,6 +282,7 @@ public class Game_Manager : MonoBehaviour
     {
         pause_panel.SetActive(false);
         Time.timeScale = 1f;
+        Application.Quit();
 
     }
 
