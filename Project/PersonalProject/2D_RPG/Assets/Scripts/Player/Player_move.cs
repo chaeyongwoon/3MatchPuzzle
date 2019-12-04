@@ -29,9 +29,8 @@ public class Player_move : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        // h = Input.GetAxis("Horizontal");
-
+    {      
+        /// PC용 키 설정//
         if (Input.GetKeyDown(KeyCode.A))
         {
             LeftDown();
@@ -89,11 +88,12 @@ public class Player_move : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Ground") || collision.transform.CompareTag("Enemy"))
+        if (collision.transform.CompareTag("Ground") || collision.transform.CompareTag("Enemy")) // 땅이나 몬스터에 닿았을경우 점프 사용가능
             isJump = false; ;
         animator.SetBool("Jump", false);
     }
 
+   /// 모바일 용 UI에 연결된 트리거 함수
     public void LeftDown()
     {
         h = -1;

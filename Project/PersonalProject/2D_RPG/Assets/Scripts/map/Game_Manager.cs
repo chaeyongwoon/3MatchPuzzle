@@ -56,6 +56,8 @@ public class Game_Manager : MonoBehaviour
             instance = this;
         }
 
+
+        ////////////////// UI 관련 변수들 초기화 //////////////////
         player_health_slider.value = (DataController.instance.gameData.Current_health / DataController.instance.gameData.Max_health);
         damage.text = string.Format("공격력 : {0}", DataController.instance.gameData.Damage);
         health.text = string.Format(" {0} / {1}", DataController.instance.gameData.Current_health,DataController.instance.gameData.Max_health);
@@ -91,6 +93,7 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ////////////////// 플레이어의 체력과 금화는 자주 변동되기 때문에 실시간으로 초기화 //////////////////
         player_health_slider.value = (DataController.instance.gameData.Current_health / DataController.instance.gameData.Max_health);
         health.text = string.Format(" {0} / {1} ({2}%)",Mathf.Floor( DataController.instance.gameData.Current_health) ,DataController.instance.gameData.Max_health
             , Mathf.Floor(DataController.instance.gameData.Current_health / DataController.instance.gameData.Max_health * 100));
@@ -103,7 +106,7 @@ public class Game_Manager : MonoBehaviour
 
     }
 
-    public void damage_upgrade()
+    public void damage_upgrade() // 공격력 강화 함수
     {
         if (DataController.instance.gameData.Money >= 100 * DataController.instance.gameData.Damage_level)
         {
@@ -116,7 +119,7 @@ public class Game_Manager : MonoBehaviour
             damage_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Damage_level);
         }
     }
-    public void max_health_upgrade()
+    public void max_health_upgrade() // 최대체력 강화 함수
     {
         if (DataController.instance.gameData.Money >= 100 * DataController.instance.gameData.Max_health_level)
         {
@@ -128,7 +131,7 @@ public class Game_Manager : MonoBehaviour
             max_health_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Max_health_level);
         }
     }
-    public void defend_upgrade()
+    public void defend_upgrade() // 방어력 강화 함수
     {
         if (DataController.instance.gameData.Money >= 100 * DataController.instance.gameData.Defend_level)
         {
@@ -148,7 +151,7 @@ public class Game_Manager : MonoBehaviour
             }
         }
     }
-    public void healing_upgrade()
+    public void healing_upgrade() // 체력회복 강화 함수
     {
         if (DataController.instance.gameData.Money >= 100 * DataController.instance.gameData.Healing_level)
         {
@@ -161,7 +164,7 @@ public class Game_Manager : MonoBehaviour
             healing_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Healing_level);
         }
     }
-    public void Reload_upgrade()
+    public void Reload_upgrade() // 공격속도 강화 함수
     {
         if (DataController.instance.gameData.Money >= 1000 * DataController.instance.gameData.Reload_level)
         {
@@ -185,7 +188,7 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
-    public void open_shop()
+    public void open_shop() // 상점 열기 함수
     {
         damage_level.text = string.Format("(LV.{0})", DataController.instance.gameData.Damage_level);
         damage_value.text = string.Format("{0}", DataController.instance.gameData.Damage);
@@ -199,21 +202,20 @@ public class Game_Manager : MonoBehaviour
         healing_level.text = string.Format("(LV. {0})", DataController.instance.gameData.Healing_level);
         healing_value.text = string.Format("{0}", DataController.instance.gameData.Healing);
         healing_upgrade_price.text = string.Format("{0}", 100 * DataController.instance.gameData.Healing_level);
-       // Reload_level.text = string.Format("(LV. {0}", DataController.instance.gameData.Reload_level);
-       // Reload_value.text = string.Format("{0}s", DataController.instance.gameData.Reload);
-       // Reload_upgrade_price.text = string.Format("{0}", 1000 * DataController.instance.gameData.Reload_level);
 
         shop_panel.SetActive(true);
     }
 
-    public void close_shop()
+    public void close_shop() // 상점 닫기 함수
     {
         shop_panel.SetActive(false);
 
     }
 
-    public void Color_change()
+    public void Color_change() // 색상변환 함수
     {
+        ////////////////// 좌측상단 색상 이미지를 변환하는 함수 //////////////////
+
         switch (DataController.instance.gameData.Color_num)
         {
             case 0:
@@ -265,8 +267,9 @@ public class Game_Manager : MonoBehaviour
         DataController.instance.SaveGameData();
     }
 
-    public void Menu()
+    public void Menu() 
     {
+        //// 메인 메뉴화면으로 이동하고 DontDestroy 가 선언되어있던 오브젝트들 삭제 ///
         pause_panel.SetActive(false);
         Time.timeScale = 1f;
         Destroy(obj[0]);
@@ -278,7 +281,7 @@ public class Game_Manager : MonoBehaviour
 
         SceneManager.LoadScene("0.start");
     }
-    public void Quit()
+    public void Quit() // 게임종료 버튼 함수
     {
         pause_panel.SetActive(false);
         Time.timeScale = 1f;

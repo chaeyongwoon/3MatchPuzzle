@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/BayatGames/Free Platform Game Assets/Scenes/0.start.unity
+    path: Assets/Scenes/0.menu.unity
     guid: fa471eb95eeedcb4d9a160049a92228c
   - enabled: 1
-    path: Assets/BayatGames/Free Platform Game Assets/Scenes/1.tutorial.unity
+    path: Assets/Scenes/1.tutorial.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/BayatGames/Free Platform Game Assets/Scenes/2.town.unity
+    path: Assets/Scenes/2.town.unity
     guid: dd67f0696c2dbef40a6bb300988bc212
   - enabled: 1
-    path: Assets/BayatGames/Free Platform Game Assets/Scenes/3.stage1.unity
+    path: Assets/Scenes/3.stage1.unity
     guid: 11ba466faad6d644ca069abaf06c58d6
   - enabled: 1
-    path: Assets/BayatGames/Free Platform Game Assets/Scenes/4.stage2.unity
+    path: Assets/Scenes/4.stage2.unity
     guid: bd219a4defa6a07478f0d1e6dc6e28c8
   - enabled: 1
-    path: Assets/BayatGames/Free Platform Game Assets/Scenes/5.stage_infinite.unity
+    path: Assets/Scenes/5.stage_infinite.unity
     guid: 037710f03b8f66444bfc20e7c40bbe94
   m_configObjects: {}

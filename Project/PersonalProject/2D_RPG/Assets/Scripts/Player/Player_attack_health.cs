@@ -32,7 +32,7 @@ public class Player_attack_health : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartCoroutine("Take_Heal");
+        StartCoroutine("Take_Heal"); // 일정시간마다 체력을 회복하는 함수 코루틴으로 실행
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         audiosource = GetComponent<AudioSource>();
@@ -42,12 +42,11 @@ public class Player_attack_health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         DataController.instance.gameData.Reload_term += Time.deltaTime;
         fire_position = transform.position + transform.right * 2;
         if (!ani.GetBool("Dead"))
         {
-            if (Input.GetKey(KeyCode.Z))
+            if (Input.GetKey(KeyCode.Z)) // PC용 키 설정
             {
                 Shoot();
             }
@@ -59,27 +58,27 @@ public class Player_attack_health : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1)) // PC용 키 설정
         {
             transform.position = new Vector2(0f, 3f);
             Camera.main.transform.position = new Vector3(0, 3, -10);
             SceneManager.LoadScene("2.town");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))// PC용 키 설정
         {
-            transform.position = new Vector2(0f, 3f);
+            transform.position = new Vector2(0f, 3f); 
             Camera.main.transform.position = new Vector3(0, 3, -10);
             SceneManager.LoadScene("3.stage1");
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))// PC용 키 설정
         {
             transform.position = new Vector2(0f, 3f);
             Camera.main.transform.position = new Vector3(0, 3, -10);
             SceneManager.LoadScene("4.stage2");
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4))// PC용 키 설정
         {
             transform.position = new Vector2(0f, 3f);
             Camera.main.transform.position = new Vector3(0, 3, -10);
@@ -88,7 +87,7 @@ public class Player_attack_health : MonoBehaviour
         }
 
 
-        if (transform.position.y <= -100f)
+        if (transform.position.y <= -100f) // 만약을 대비해 캐릭터가 계속 추락할 경우 실행
         {
             StartCoroutine(Dead());
         }
@@ -96,12 +95,12 @@ public class Player_attack_health : MonoBehaviour
     }
 
 
-    public void OnAttackDown()
+    public void OnAttackDown() // 모바일 용 UI 트리거 함수
     {
         DataController.instance.gameData.Is_shoot = true;
     }
 
-    public void OnAttackUp()
+    public void OnAttackUp()// 모바일 용 UI 트리거 함수
     {
         DataController.instance.gameData.Is_shoot = false;
     }
@@ -109,7 +108,7 @@ public class Player_attack_health : MonoBehaviour
     public void Shoot()
     {
 
-        if (DataController.instance.gameData.Reload_term > DataController.instance.gameData.Reload)
+        if (DataController.instance.gameData.Reload_term > DataController.instance.gameData.Reload) // 일정시간 지연을 두어 공격할 수 있도록 설정
         {
             audiosource.clip = shoot_sound;
             audiosource.Play();
@@ -125,15 +124,15 @@ public class Player_attack_health : MonoBehaviour
         if (isdamaged == false)
         {
             isdamaged = true;
-            DataController.instance.gameData.Current_health -= damage * (100 - DataController.instance.gameData.Defend) * 0.01f * Random.Range(0.8f, 1.4f);
+            DataController.instance.gameData.Current_health -= damage * (100 - DataController.instance.gameData.Defend) * 0.01f * Random.Range(0.8f, 1.4f); // 80%~140%의 랜덤한 데미지를 방어력에 따라 재조정되어 피해계산
 
             if (DataController.instance.gameData.Current_health <= 0)
             {
                 DataController.instance.gameData.Current_health = 0;
             }
-            Vector3 direction = (transform.position - col_pos).normalized;
 
-            rb.AddForce(new Vector2(direction.x * x_force, y_force));
+            Vector3 direction = (transform.position - col_pos).normalized; // 적 과 충돌시 충돌반대 방향으로 벡터계산
+            rb.AddForce(new Vector2(direction.x * x_force, y_force));       // 살짝 튕겨나가는 효과
 
             if (DataController.instance.gameData.Current_health <= 0f)
             {
@@ -143,7 +142,7 @@ public class Player_attack_health : MonoBehaviour
         }
     }
 
-    public IEnumerator Rehit()
+    public IEnumerator Rehit() // 짧은시간에 플레이어의 체력이 여러번 감소되지 않도록 설정
     {
         yield return new WaitForSeconds(1f);
         isdamaged = false;
@@ -152,6 +151,7 @@ public class Player_attack_health : MonoBehaviour
 
     public IEnumerator Dead()
     {
+        //// 사망시 3초 후 50의 체력으로 마을에서 부활///
         if (!ani.GetBool("Dead"))
             ani.SetBool("Dead", true);
         {
@@ -168,7 +168,7 @@ public class Player_attack_health : MonoBehaviour
         }
     }
 
-    public void Color_Change_Red()
+    public void Color_Change_Red() // 색상 변경함수. 빨강
     {
         DataController.instance.gameData.Color_num = 0;
         Game_Manager.instance.Color_change();
@@ -177,7 +177,7 @@ public class Player_attack_health : MonoBehaviour
         color_img[2].SetActive(false);
         color_img[3].SetActive(false);
     }
-    public void Color_Change_Yellow()
+    public void Color_Change_Yellow()// 색상 변경함수. 노랑
     {
         DataController.instance.gameData.Color_num = 1;
         Game_Manager.instance.Color_change();
@@ -186,7 +186,7 @@ public class Player_attack_health : MonoBehaviour
         color_img[2].SetActive(false);
         color_img[3].SetActive(false);
     }
-    public void Color_Change_Green()
+    public void Color_Change_Green()// 색상 변경함수. 초록
     {
         DataController.instance.gameData.Color_num = 2;
         Game_Manager.instance.Color_change();
@@ -195,7 +195,7 @@ public class Player_attack_health : MonoBehaviour
         color_img[2].SetActive(true);
         color_img[3].SetActive(false);
     }
-    public void Color_Change_Blue()
+    public void Color_Change_Blue()// 색상 변경함수. 파랑
     {
         DataController.instance.gameData.Color_num = 3;
         Game_Manager.instance.Color_change();
@@ -205,7 +205,7 @@ public class Player_attack_health : MonoBehaviour
         color_img[3].SetActive(true);
     }
 
-    IEnumerator Take_Heal()
+    IEnumerator Take_Heal() // 일정시간마다 체력회복
     {
         while (true)
         {
@@ -220,17 +220,6 @@ public class Player_attack_health : MonoBehaviour
         }
     }
 
-    /*
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        //   transform.position = new Vector2(0f, 3f);
-        //  Camera.main.transform.position = new Vector3(0, 3, -10);
-    }*/
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -240,6 +229,7 @@ public class Player_attack_health : MonoBehaviour
             Camera.main.transform.position = new Vector3(0, 3, -10);
 
 
+            ///스테이지 클리어 시 보상///
             rewards_panel.SetActive(true);
             float rewards = 0;
             if (SceneManager.GetActiveScene().name == "1.tutorial")
@@ -261,7 +251,7 @@ public class Player_attack_health : MonoBehaviour
             SceneManager.LoadScene("2.town");
         }
 
-        if (coll.transform.CompareTag("Hole"))
+        if (coll.transform.CompareTag("Hole")) // 구멍에 빠질경우 사망
         {
             StartCoroutine(Dead());
         }
@@ -269,13 +259,13 @@ public class Player_attack_health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Snow_storm"))
+        if (collision.CompareTag("Snow_storm")) // 눈사태에 닿을경우 사망
         {
             StartCoroutine(Dead());
         }
     }
 
-    public void Clear()
+    public void Clear() // 무한던전 클리어시 호출하는 함수
     {
         transform.position = new Vector2(0f, 3f);
         Camera.main.transform.position = new Vector3(0, 3, -10);

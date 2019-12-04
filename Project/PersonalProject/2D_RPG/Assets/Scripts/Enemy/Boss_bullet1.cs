@@ -14,6 +14,7 @@ public class Boss_bullet1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 플레이어,보스몬스터,게임매니저 오브젝트 참조
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
@@ -43,6 +44,6 @@ public class Boss_bullet1 : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject); // 카메라 밖으로 나갈경우 오브젝트 삭제
     }
 }

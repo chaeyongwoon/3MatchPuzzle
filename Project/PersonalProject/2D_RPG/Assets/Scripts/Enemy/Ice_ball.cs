@@ -19,11 +19,12 @@ public class Ice_ball : MonoBehaviour
     public Rigidbody2D rb;
 
     void Start()
-    {
+    {   // 플레이어와 게임매니저 오브젝트 참조
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
         rb = GetComponent<Rigidbody2D>();
         
+        /// 체력 및 공격력 초기화
         origin_pos = transform.position;
         max_health = 100 + 100* gm.stage_level;
         current_health = max_health;
@@ -32,13 +33,14 @@ public class Ice_ball : MonoBehaviour
 
     
    
-    void Take_damage(float damage)
+    void Take_damage(float damage) // 체력 손실 함수
     {
-        float real_damage = damage * Random.Range(0.8f, 1.4f);
+        float real_damage = damage * Random.Range(0.8f, 1.4f);// 80%~140%의 랜덤한 데미지
 
         current_health -= real_damage;
         hp_slider.value = current_health / max_health;
 
+        //////////데미지 텍스트 띄우기 /////////
         Text obj = Instantiate(damage_text, transform.position, transform.rotation);
         obj.text = "" + Mathf.Floor(real_damage);
         obj.transform.parent = transform.GetChild(0);
@@ -52,9 +54,9 @@ public class Ice_ball : MonoBehaviour
         }
     }
 
-    public void Revival()
+    public void Revival() // 부활 ( 재생성) 함수
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll; // 가속도를 없애기위해 포지션과 로테이션을 일시적으로 고정
         transform.position = origin_pos;
         current_health = max_health;
         rb.constraints = RigidbodyConstraints2D.None;

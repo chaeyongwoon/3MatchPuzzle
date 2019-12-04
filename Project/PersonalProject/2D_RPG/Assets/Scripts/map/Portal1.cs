@@ -18,7 +18,8 @@ public class Portal1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        /// 자신의 태그에 맞는 스테이지 입장판넬 활성화 ///
+        if (collision.CompareTag("Player")) 
         {
             if (CompareTag("To_stage1"))
             {

@@ -45,11 +45,13 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        // 플레이어,게임매니저 및 기타 컴포넌트 참조
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
+        // 최대체력,공격력 초기화
         max_health = 100 + 20000 * gm.stage_level;
         current_health = max_health;
         damage = 10 + 100 * gm.stage_level;
@@ -58,9 +60,10 @@ public class Boss : MonoBehaviour
         health_text.text = string.Format("{0}/{1}", Mathf.Floor(current_health), Mathf.Floor(max_health));
         damage_ui_text.text = string.Format("보스 공격력 : {0}  방어력 : {1}%", damage,gm.stage_level);
 
-        StartCoroutine(Color_change());
+        StartCoroutine(Color_change()); // 일정시간마다 보스몬스터의 색상 상태 변경
 
-        StartCoroutine(Attack1());
+        // 4가지의 공격패턴을 각각 설정된 시간마다 사용
+        StartCoroutine(Attack1()); 
         StartCoroutine(Attack2());
         StartCoroutine(Attack3());
         StartCoroutine(Attack4());    
@@ -74,26 +77,27 @@ public class Boss : MonoBehaviour
         {
             if (state.ToString() == collision.gameObject.GetComponent<player_bullet>().state.ToString())
             {
-
                 Take_damage(DataController.instance.gameData.Damage);
             }
         }
     }
 
 
-    void Take_damage(float damage)
+    void Take_damage(float damage) // 체력 손실 함수
     {
-        float real_damage = damage * Random.Range(0.8f, 1.4f);
+        float real_damage = damage * Random.Range(0.8f, 1.4f); // 80%~140%의 랜덤한 데미지
 
-        current_health -= real_damage * (100-gm.stage_level)*0.01f;
+        current_health -= real_damage * (100-gm.stage_level)*0.01f; // 플레이어 총알의 공격력을 방어력의 비율에따라 감소시킨 후 체력감소
         hp_slider.value = current_health / max_health;
 
+
+        /// 데미지 텍스트 띄우기///
         Text obj = Instantiate(damage_text, transform.position, transform.rotation);
         obj.text = "" + Mathf.Floor(real_damage);
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
-        DataController.instance.gameData.Money += Mathf.Floor(real_damage);
+        DataController.instance.gameData.Money += Mathf.Floor(real_damage); // 데미지에 따른 금화
         health_text.text = string.Format("{0}/{1}",Mathf.Floor( current_health), Mathf.Floor(max_health));
         if (current_health <= 0)
         {
@@ -104,14 +108,10 @@ public class Boss : MonoBehaviour
     }
 
     public void Dead()
-    {
-        // 죽는 애니메이션 및 보상 , 장비? 펫?
+    {        // 사망시 추락하도록 설정, 일정시간 후 스테이지 전환
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
         StartCoroutine(Stage_clear());
-
-
-
     }
 
     public IEnumerator Stage_clear()
@@ -121,11 +121,11 @@ public class Boss : MonoBehaviour
     }
 
 
-    public IEnumerator Color_change()
+    public IEnumerator Color_change() // 보스몬스터 색상 상태 변경함수
     {
         while (true)
         {
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(20f); // 20초마다 4가지 색상중 한가지로 랜덤하게 변경
             int a = Random.Range(0, 4);
             switch (a)
             {
@@ -151,7 +151,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    public IEnumerator Attack1()
+    public IEnumerator Attack1() // 1번 공격패턴 함수. 총알 부채꼴 발사
     {
         while (true)
         {
@@ -160,12 +160,12 @@ public class Boss : MonoBehaviour
             Quaternion angle;
             for (int i = 1; i < bullet1_num; i++)
             {
-                angle = Quaternion.Euler(new Vector3(0, 0, -90 + 180 / bullet1_num * i));
+                angle = Quaternion.Euler(new Vector3(0, 0, -90 + 180 / bullet1_num * i));   // 부채꼴 모양으로 각도 계산
                Instantiate(bullet, fire_pos.position, angle); 
             }
         }
     }
-    public IEnumerator Attack2()
+    public IEnumerator Attack2()// 2번 공격패턴 함수. 가시블록 생성
     {
         while (true)
         {
@@ -178,7 +178,7 @@ public class Boss : MonoBehaviour
 
         }
     }
-    public IEnumerator Attack3()
+    public IEnumerator Attack3()// 3번 공격패턴 함수. 총알 나선형 발사
     {
         while (true)
         {
@@ -188,14 +188,14 @@ public class Boss : MonoBehaviour
             Quaternion angle;
             while (i < bullet2_num)
             {
-                angle = Quaternion.Euler(new Vector3(0, 0, -90 + 180 / bullet2_num * i));
+                angle = Quaternion.Euler(new Vector3(0, 0, -90 + 180 / bullet2_num * i));  // 부채꼴 모양으로 각도 계산
                 Instantiate(bullet, fire_pos.position, angle);
                 i++;
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.1f); // 0.1초의 딜레이를 주어 나선형으로 발사
             }
         }
     }
-    public IEnumerator Attack4()
+    public IEnumerator Attack4()// 4번 공격패턴 함수. 얼음블록 갱신
     {
         while (true)
         {
@@ -205,7 +205,7 @@ public class Boss : MonoBehaviour
             {
                 Ice_block[i].SetActive(false);
                 Ice_block[i].SetActive(true);
-                Ice_block[i].GetComponent<Ice_block>().Revival();
+                Ice_block[i].GetComponent<Ice_block>().Revival(); // 부셔진 얼음블록 재생성
             }
 
         }

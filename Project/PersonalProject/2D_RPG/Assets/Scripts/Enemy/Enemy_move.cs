@@ -20,7 +20,7 @@ public class Enemy_move : MonoBehaviour
     public float damage;
 
     public Text damage_text;
-    public int damage_num = 1;
+
     public bool isdead = false;
     public bool isjump = false;
    
@@ -53,14 +53,17 @@ public class Enemy_move : MonoBehaviour
         {
             Target_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
-        orignal_position = transform.position;
+        orignal_position = transform.position; // 초기위치 저장
 
+
+        // 플레이어, 게임매니저 오브젝트 및 기타 컴포넌트 참조
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
         cap_col = GetComponent<CapsuleCollider2D>();
         rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
+        // 체력, 공격력 초기화
         max_health = 100 + 100* gm.stage_level;
         current_health = max_health;
         damage = 10 + 10* gm.stage_level;
@@ -73,7 +76,7 @@ public class Enemy_move : MonoBehaviour
     void Update()
     {
 
-        if (Vector2.Distance(transform.position, Target_player.position) < dis)
+        if (Vector2.Distance(transform.position, Target_player.position) < dis) // 플레이어와의 거리가 일정거리 이하일 경우
         {
             if (isdead == false)
             {
@@ -86,7 +89,7 @@ public class Enemy_move : MonoBehaviour
                 {
                     if (isjump == false)
                     {
-                        //rb.velocity = new Vector2(rb.velocity.x, JumpPow); // 일단 보류
+                        //rb.velocity = new Vector2(rb.velocity.x, JumpPow); // 몬스터가 점프할시 난이도가 높아져 무기한 보류
                         isjump = true;
                         StartCoroutine(ReJump());
                     }
@@ -99,8 +102,8 @@ public class Enemy_move : MonoBehaviour
     {
         if (collision.transform.CompareTag("bullet"))
         {
-            if (state.ToString() == collision.gameObject.GetComponent<player_bullet>().state.ToString())
-            {
+            if (state.ToString() == collision.gameObject.GetComponent<player_bullet>().state.ToString()) // 충돌한 총알의 색과 몬스터의 색상이 일치하는지 판단
+            { 
 
                 Take_damage(DataController.instance.gameData.Damage);
             }
@@ -114,15 +117,17 @@ public class Enemy_move : MonoBehaviour
     }
 
 
-    void Take_damage(float damage)
+    void Take_damage(float damage) // 체력 손실 함수
     {
         float real_damage = damage * Random.Range(0.8f, 1.4f);
 
-        current_health -= real_damage /* * (100 - defend) * 0.01f*/;
+        current_health -= real_damage;
         hp_slider.value = current_health / max_health;
 
+
+        ////// 데미지 텍스트 띄우기 ////// 
         Text obj = Instantiate(damage_text, transform.position, transform.rotation);
-        obj.text = "" + Mathf.Floor(real_damage); /* * (100 - defend) * 0.01f*/
+        obj.text = "" + Mathf.Floor(real_damage); 
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
@@ -138,13 +143,14 @@ public class Enemy_move : MonoBehaviour
     }
     void Dead()
     {
+           // 몬스터 사망시 오브젝트를 삭제하지 않고 컴포넌트들을 비활성화 시켜둔 후 일정시간이 지나면 다시 활성화
         isdead = true;
         cap_col.isTrigger = true;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         rend.enabled = false;
         hp_slider.gameObject.SetActive(false);
-        //gameObject.SetActive(false);
-        Invoke("revival", revival_term);
+        
+        Invoke("revival", revival_term);// 일정시간 후 부활
 
     }
 
@@ -159,7 +165,7 @@ public class Enemy_move : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         rend.enabled = true;
         hp_slider.gameObject.SetActive(true);
-        //gameObject.SetActive(true);
+        
     }
 
     public IEnumerator ReJump()

@@ -13,6 +13,6 @@ public class Shop : MonoBehaviour
 
     public void Shop_open()
     {
-        gm.open_shop();
+        gm.open_shop(); // 무한던전 스테이지에서 혼자 쓰이는 스크립트의 상점 오픈 함수
     }
 }

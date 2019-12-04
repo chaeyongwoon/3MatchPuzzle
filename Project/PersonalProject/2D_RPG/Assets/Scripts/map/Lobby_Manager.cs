@@ -53,10 +53,9 @@ public class Lobby_Manager : MonoBehaviour
         portal_panel[2].SetActive(false);
     }
 
-    public void Enter_stage()
+    public void Enter_stage() // 스테이지별 난이도 설정 및 입장
     {
-
-                Camera.main.transform.position = new Vector3(0, 3, -10);
+        Camera.main.transform.position = new Vector3(0, 3, -10);
         switch (stage_num)
         {
             case 0:
@@ -68,20 +67,20 @@ public class Lobby_Manager : MonoBehaviour
             case 1:
                 gm.stage_level = 3;
                 player.transform.position = new Vector2(0f, 3f);
-               
+
                 SceneManager.LoadScene("4.stage2");
                 break;
 
             case 2:
                 player.transform.position = new Vector2(-45f, 15f);
-               
+
                 SceneManager.LoadScene("5.stage_infinite");
-             
+
                 break;
         }
     }
 
-    public void Stage_level_up()
+    public void Stage_level_up() // 무한던전 난이도 조절
     {
         gm.stage_level += 1;
         if (gm.stage_level >= 100)
@@ -91,7 +90,7 @@ public class Lobby_Manager : MonoBehaviour
         Infinite_level_text.text = "Level : " + gm.stage_level;
     }
 
-    public void Stage_level_down()
+    public void Stage_level_down()// 무한던전 난이도 조절
     {
         gm.stage_level -= 1;
         if (gm.stage_level < 5)
