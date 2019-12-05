@@ -2054,8 +2054,8 @@ MonoBehaviour:
   - {fileID: 897368674}
   - {fileID: 1658447173}
   - {fileID: 1033066740}
-  rend: {fileID: 0}
-  rb: {fileID: 0}
+  rend: {fileID: 674317756}
+  rb: {fileID: 674317759}
   max_health: 0
   current_health: 0
   damage: 0

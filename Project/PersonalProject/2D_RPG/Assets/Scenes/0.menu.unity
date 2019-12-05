@@ -4500,7 +4500,7 @@ MonoBehaviour:
   - {fileID: 1024427392065124, guid: 7a73af0883126a84a9402541275c0b88, type: 3}
   fire_position: {x: 0, y: 0}
   isdamaged: 0
-  rb: {fileID: 0}
+  rb: {fileID: 1293031541}
   x_force: 3
   y_force: 2
   color_img:
@@ -4510,8 +4510,8 @@ MonoBehaviour:
   - {fileID: 349325821}
   rewards_panel: {fileID: 1473025591}
   rewards_text: {fileID: 1814423298}
-  ani: {fileID: 0}
-  audiosource: {fileID: 0}
+  ani: {fileID: 1293031542}
+  audiosource: {fileID: 1293031539}
   shoot_sound: {fileID: 8300000, guid: 25f27d1320c99b942986ea06dc4a15fe, type: 3}
   dead_sound: {fileID: 8300000, guid: 9e885eeded8184d48b374ede020e3ba4, type: 3}
 --- !u!114 &1293031537

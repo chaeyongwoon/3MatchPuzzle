@@ -17,26 +17,35 @@ public class Player_attack_health : MonoBehaviour
 
     public bool isdamaged = false;
 
-    public Rigidbody2D rb;
     public float x_force, y_force;
 
     public GameObject[] color_img;
     public GameObject rewards_panel;
     public Text rewards_text;
 
-    public Animator ani;
 
+    public Rigidbody2D rb;
+    public Animator ani;
     public AudioSource audiosource;
     public AudioClip shoot_sound, dead_sound;
 
     // Use this for initialization
     void Start()
     {
-        StartCoroutine("Take_Heal"); // 일정시간마다 체력을 회복하는 함수 코루틴으로 실행
-        rb = GetComponent<Rigidbody2D>();
-        ani = GetComponent<Animator>();
-        audiosource = GetComponent<AudioSource>();
+        if (!rb)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+        if (!ani)
+        {
+            ani = GetComponent<Animator>();
+        }
+        if (!audiosource)
+        {
+            audiosource = GetComponent<AudioSource>();
+        }
 
+        StartCoroutine("Take_Heal"); // 일정시간마다 체력을 회복하는 함수 코루틴으로 실행
     }
 
     // Update is called once per frame
@@ -66,7 +75,7 @@ public class Player_attack_health : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))// PC용 키 설정
         {
-            transform.position = new Vector2(0f, 3f); 
+            transform.position = new Vector2(0f, 3f);
             Camera.main.transform.position = new Vector3(0, 3, -10);
             SceneManager.LoadScene("3.stage1");
 
@@ -164,6 +173,7 @@ public class Player_attack_health : MonoBehaviour
             Camera.main.transform.position = new Vector3(0, 3, -10);
 
             DataController.instance.gameData.Current_health = 50f;
+            System.GC.Collect(); // 던전 씬에서 마을로 이동시 가비지컬렉터 사용
             SceneManager.LoadScene("2.town");
         }
     }
@@ -248,6 +258,7 @@ public class Player_attack_health : MonoBehaviour
             DataController.instance.gameData.Money += rewards;
             rewards_text.text = string.Format("{0}", rewards);
 
+            System.GC.Collect(); // 던전 씬에서 마을로 이동시 가비지컬렉터 사용
             SceneManager.LoadScene("2.town");
         }
 
@@ -274,7 +285,7 @@ public class Player_attack_health : MonoBehaviour
         float rewards = 10000 * Game_Manager.instance.stage_level;
         DataController.instance.gameData.Money += rewards;
         rewards_text.text = string.Format("{0}", rewards);
-
+        System.GC.Collect(); // 던전 씬에서 마을로 이동시 가비지컬렉터 사용
         SceneManager.LoadScene("2.town");
     }
     public void close_rewards_panel()

@@ -20,10 +20,19 @@ public class Player_move : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (!animator)
+        {
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        audiosource = GetComponent<AudioSource>();
-        audiosource.clip = jump_sound;
+        }
+        if (!rb)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+        if (!audiosource)
+        {
+            audiosource = GetComponent<AudioSource>();
+        }
+            audiosource.clip = jump_sound;
         h = 0;
     }
 

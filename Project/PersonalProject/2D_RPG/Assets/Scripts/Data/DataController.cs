@@ -58,15 +58,12 @@ public class DataController : MonoBehaviour
             Debug.Log(filePath);
             string FromJsonData = File.ReadAllText(filePath);           // 게임데이터 파일을 Json으로 읽어들임
             _gameData = JsonUtility.FromJson<GameData>(FromJsonData);   // Json으로 읽어온 데이터를 적용
-
         }
         else
         {
             Debug.Log("새로운 파일 생성");
-
             _gameData = new GameData();
             Initialize_Data();
-
         }
     }
     public void SaveGameData() // 게임데이터 저장

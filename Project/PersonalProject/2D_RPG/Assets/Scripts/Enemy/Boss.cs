@@ -48,8 +48,15 @@ public class Boss : MonoBehaviour
         // 플레이어,게임매니저 및 기타 컴포넌트 참조
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
-        rend = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+
+        if (!rend)
+        {
+            rend = GetComponent<SpriteRenderer>();
+        }
+        if (!rb)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
 
         // 최대체력,공격력 초기화
         max_health = 100 + 20000 * gm.stage_level;
@@ -58,15 +65,15 @@ public class Boss : MonoBehaviour
 
         hp_slider.value = current_health / max_health;
         health_text.text = string.Format("{0}/{1}", Mathf.Floor(current_health), Mathf.Floor(max_health));
-        damage_ui_text.text = string.Format("보스 공격력 : {0}  방어력 : {1}%", damage,gm.stage_level);
+        damage_ui_text.text = string.Format("보스 공격력 : {0}  방어력 : {1}%", damage, gm.stage_level);
 
         StartCoroutine(Color_change()); // 일정시간마다 보스몬스터의 색상 상태 변경
 
         // 4가지의 공격패턴을 각각 설정된 시간마다 사용
-        StartCoroutine(Attack1()); 
+        StartCoroutine(Attack1());
         StartCoroutine(Attack2());
         StartCoroutine(Attack3());
-        StartCoroutine(Attack4());    
+        StartCoroutine(Attack4());
 
     }
 
@@ -87,7 +94,7 @@ public class Boss : MonoBehaviour
     {
         float real_damage = damage * Random.Range(0.8f, 1.4f); // 80%~140%의 랜덤한 데미지
 
-        current_health -= real_damage * (100-gm.stage_level)*0.01f; // 플레이어 총알의 공격력을 방어력의 비율에따라 감소시킨 후 체력감소
+        current_health -= real_damage * (100 - gm.stage_level) * 0.01f; // 플레이어 총알의 공격력을 방어력의 비율에따라 감소시킨 후 체력감소
         hp_slider.value = current_health / max_health;
 
 
@@ -98,7 +105,7 @@ public class Boss : MonoBehaviour
         obj.rectTransform.localScale = new Vector2(1, 1);
 
         DataController.instance.gameData.Money += Mathf.Floor(real_damage); // 데미지에 따른 금화
-        health_text.text = string.Format("{0}/{1}",Mathf.Floor( current_health), Mathf.Floor(max_health));
+        health_text.text = string.Format("{0}/{1}", Mathf.Floor(current_health), Mathf.Floor(max_health));
         if (current_health <= 0)
         {
             current_health = 0;
@@ -161,7 +168,7 @@ public class Boss : MonoBehaviour
             for (int i = 1; i < bullet1_num; i++)
             {
                 angle = Quaternion.Euler(new Vector3(0, 0, -90 + 180 / bullet1_num * i));   // 부채꼴 모양으로 각도 계산
-               Instantiate(bullet, fire_pos.position, angle); 
+                Instantiate(bullet, fire_pos.position, angle);
             }
         }
     }
@@ -183,7 +190,7 @@ public class Boss : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(attack3_term);
-            
+
             int i = 1;
             Quaternion angle;
             while (i < bullet2_num)
@@ -201,7 +208,7 @@ public class Boss : MonoBehaviour
         {
             yield return new WaitForSeconds(attack4_term);
 
-            for(int i = 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 Ice_block[i].SetActive(false);
                 Ice_block[i].SetActive(true);
@@ -210,5 +217,5 @@ public class Boss : MonoBehaviour
 
         }
     }
-    
+
 }

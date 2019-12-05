@@ -707,11 +707,44 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114116105983041270, guid: bbd6c28e744603d4d90a66b40e0b1b84,
+        type: 3}
+      propertyPath: cap_col
+      value: 
+      objectReference: {fileID: 490412489}
+    - target: {fileID: 114116105983041270, guid: bbd6c28e744603d4d90a66b40e0b1b84,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 490412488}
+    - target: {fileID: 114116105983041270, guid: bbd6c28e744603d4d90a66b40e0b1b84,
+        type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 490412490}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd6c28e744603d4d90a66b40e0b1b84, type: 3}
 --- !u!4 &490412487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4905861694098164, guid: bbd6c28e744603d4d90a66b40e0b1b84,
+    type: 3}
+  m_PrefabInstance: {fileID: 490412486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &490412488 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 50201985653160146, guid: bbd6c28e744603d4d90a66b40e0b1b84,
+    type: 3}
+  m_PrefabInstance: {fileID: 490412486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &490412489 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 70901297716761484, guid: bbd6c28e744603d4d90a66b40e0b1b84,
+    type: 3}
+  m_PrefabInstance: {fileID: 490412486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &490412490 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212915760692672514, guid: bbd6c28e744603d4d90a66b40e0b1b84,
     type: 3}
   m_PrefabInstance: {fileID: 490412486}
   m_PrefabAsset: {fileID: 0}
@@ -3643,11 +3676,44 @@ PrefabInstance:
       propertyPath: max_health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114899685617148548, guid: 5d8a0464f7234fa48ac13d1c2ae26109,
+        type: 3}
+      propertyPath: cap_col
+      value: 
+      objectReference: {fileID: 760475974}
+    - target: {fileID: 114899685617148548, guid: 5d8a0464f7234fa48ac13d1c2ae26109,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 760475973}
+    - target: {fileID: 114899685617148548, guid: 5d8a0464f7234fa48ac13d1c2ae26109,
+        type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 760475975}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d8a0464f7234fa48ac13d1c2ae26109, type: 3}
 --- !u!4 &760475972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4698067510802390, guid: 5d8a0464f7234fa48ac13d1c2ae26109,
+    type: 3}
+  m_PrefabInstance: {fileID: 760475971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &760475973 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 50015746738303846, guid: 5d8a0464f7234fa48ac13d1c2ae26109,
+    type: 3}
+  m_PrefabInstance: {fileID: 760475971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &760475974 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 70441145014905638, guid: 5d8a0464f7234fa48ac13d1c2ae26109,
+    type: 3}
+  m_PrefabInstance: {fileID: 760475971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &760475975 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212261857916901190, guid: 5d8a0464f7234fa48ac13d1c2ae26109,
     type: 3}
   m_PrefabInstance: {fileID: 760475971}
   m_PrefabAsset: {fileID: 0}

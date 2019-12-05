@@ -23,7 +23,7 @@ public class Enemy_move : MonoBehaviour
 
     public bool isdead = false;
     public bool isjump = false;
-   
+
 
     public Slider hp_slider;
 
@@ -59,14 +59,24 @@ public class Enemy_move : MonoBehaviour
         // 플레이어, 게임매니저 오브젝트 및 기타 컴포넌트 참조
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_attack_health>();
         gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<Game_Manager>();
-        cap_col = GetComponent<CapsuleCollider2D>();
-        rend = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        if (!cap_col)
+        {
+            cap_col = GetComponent<CapsuleCollider2D>();
+        }
+        if (!rend)
+        {
+            rend = GetComponent<SpriteRenderer>();
+        }
+        if (!rb)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
 
         // 체력, 공격력 초기화
-        max_health = 100 + 100* gm.stage_level;
+        max_health = 100 + 100 * gm.stage_level;
         current_health = max_health;
-        damage = 10 + 10* gm.stage_level;
+        damage = 10 + 10 * gm.stage_level;
 
         hp_slider.value = current_health / max_health;
 
@@ -103,7 +113,7 @@ public class Enemy_move : MonoBehaviour
         if (collision.transform.CompareTag("bullet"))
         {
             if (state.ToString() == collision.gameObject.GetComponent<player_bullet>().state.ToString()) // 충돌한 총알의 색과 몬스터의 색상이 일치하는지 판단
-            { 
+            {
 
                 Take_damage(DataController.instance.gameData.Damage);
             }
@@ -127,7 +137,7 @@ public class Enemy_move : MonoBehaviour
 
         ////// 데미지 텍스트 띄우기 ////// 
         Text obj = Instantiate(damage_text, transform.position, transform.rotation);
-        obj.text = "" + Mathf.Floor(real_damage); 
+        obj.text = "" + Mathf.Floor(real_damage);
         obj.transform.parent = transform.GetChild(0);
         obj.rectTransform.localScale = new Vector2(1, 1);
 
@@ -143,29 +153,31 @@ public class Enemy_move : MonoBehaviour
     }
     void Dead()
     {
-           // 몬스터 사망시 오브젝트를 삭제하지 않고 컴포넌트들을 비활성화 시켜둔 후 일정시간이 지나면 다시 활성화
+        // 몬스터 사망시 오브젝트를 삭제하지 않고 컴포넌트들을 비활성화 시켜둔 후 일정시간이 지나면 다시 활성화
         isdead = true;
         cap_col.isTrigger = true;
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         rend.enabled = false;
         hp_slider.gameObject.SetActive(false);
-        
-        Invoke("revival", revival_term);// 일정시간 후 부활
+
+        StartCoroutine(revival());// 일정시간 후 부활
 
     }
 
 
-    void revival()
+    public IEnumerator revival() // 오브젝트를 새로 생성하지 않고 풀링하여 재사용
     {
+        yield return new WaitForSeconds(revival_term);
+
         transform.position = orignal_position;
         current_health = max_health;
-        hp_slider.value = current_health / max_health;
-        cap_col.isTrigger = false;
+        hp_slider.value = current_health / max_health;    // 체력,포지션,콜라이더를 초기상태로 재설정
+        cap_col.isTrigger = false;                                                              
         isdead = false;
         rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         rend.enabled = true;
-        hp_slider.gameObject.SetActive(true);
-        
+        hp_slider.gameObject.SetActive(true);           // 새로 생성하지 않고 오브젝트를 풀링하여 재사용 
+
     }
 
     public IEnumerator ReJump()
