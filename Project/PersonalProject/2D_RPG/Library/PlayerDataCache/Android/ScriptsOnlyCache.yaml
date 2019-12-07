@@ -36,6 +36,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -49,7 +50,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/BayatGames/Free Platform Game Assets/Scenes/0.start.unity:
+    Assets/Scenes/0.menu.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -81,17 +82,17 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 578}
+      Script: {instanceID: 580}
     - Class: 114
-      Script: {instanceID: 9672}
+      Script: {instanceID: 9674}
     - Class: 114
-      Script: {instanceID: 9810}
+      Script: {instanceID: 9812}
     - Class: 114
-      Script: {instanceID: 9818}
+      Script: {instanceID: 9820}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9886}
     - Class: 114
       Script: {instanceID: 10176}
     - Class: 114
@@ -103,25 +104,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10418}
     - Class: 114
-      Script: {instanceID: 10618}
+      Script: {instanceID: 10616}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 10694}
+      Script: {instanceID: 10692}
     - Class: 114
-      Script: {instanceID: 10762}
+      Script: {instanceID: 10760}
     - Class: 114
-      Script: {instanceID: 10914}
+      Script: {instanceID: 10912}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11528}
+      Script: {instanceID: 11526}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11594}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -144,7 +145,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 1839735485
       Script: {instanceID: 0}
-    Assets/BayatGames/Free Platform Game Assets/Scenes/1.tutorial.unity:
+    Assets/Scenes/1.tutorial.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -172,29 +173,29 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 578}
+      Script: {instanceID: 580}
     - Class: 114
-      Script: {instanceID: 9672}
+      Script: {instanceID: 9674}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9886}
     - Class: 114
       Script: {instanceID: 10302}
     - Class: 114
       Script: {instanceID: 10418}
     - Class: 114
-      Script: {instanceID: 10994}
+      Script: {instanceID: 10992}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11594}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -219,7 +220,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 1839735485
       Script: {instanceID: 0}
-    Assets/BayatGames/Free Platform Game Assets/Scenes/2.town.unity:
+    Assets/Scenes/2.town.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -241,29 +242,29 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 578}
+      Script: {instanceID: 580}
     - Class: 114
-      Script: {instanceID: 9672}
+      Script: {instanceID: 9674}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9886}
     - Class: 114
       Script: {instanceID: 10302}
     - Class: 114
       Script: {instanceID: 10418}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 10946}
+      Script: {instanceID: 10944}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11342}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -288,7 +289,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 1839735485
       Script: {instanceID: 0}
-    Assets/BayatGames/Free Platform Game Assets/Scenes/3.stage1.unity:
+    Assets/Scenes/3.stage1.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -322,29 +323,29 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 578}
+      Script: {instanceID: 580}
     - Class: 114
-      Script: {instanceID: 9672}
+      Script: {instanceID: 9674}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9886}
     - Class: 114
       Script: {instanceID: 10302}
     - Class: 114
-      Script: {instanceID: 10748}
+      Script: {instanceID: 10746}
     - Class: 114
-      Script: {instanceID: 10994}
+      Script: {instanceID: 10992}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11594}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -369,7 +370,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 1839735485
       Script: {instanceID: 0}
-    Assets/BayatGames/Free Platform Game Assets/Scenes/4.stage2.unity:
+    Assets/Scenes/4.stage2.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -403,33 +404,33 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 578}
+      Script: {instanceID: 580}
     - Class: 114
-      Script: {instanceID: 9672}
+      Script: {instanceID: 9674}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9886}
     - Class: 114
-      Script: {instanceID: 9932}
+      Script: {instanceID: 9934}
     - Class: 114
       Script: {instanceID: 10268}
     - Class: 114
       Script: {instanceID: 10302}
     - Class: 114
-      Script: {instanceID: 10994}
+      Script: {instanceID: 10992}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 11468}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11594}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -454,7 +455,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 1839735485
       Script: {instanceID: 0}
-    Assets/BayatGames/Free Platform Game Assets/Scenes/5.stage_infinite.unity:
+    Assets/Scenes/5.stage_infinite.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -488,39 +489,39 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 578}
+      Script: {instanceID: 580}
     - Class: 114
-      Script: {instanceID: 9672}
+      Script: {instanceID: 9674}
     - Class: 114
-      Script: {instanceID: 9742}
+      Script: {instanceID: 9744}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9846}
     - Class: 114
-      Script: {instanceID: 9884}
+      Script: {instanceID: 9886}
     - Class: 114
-      Script: {instanceID: 9932}
+      Script: {instanceID: 9934}
     - Class: 114
       Script: {instanceID: 10302}
     - Class: 114
       Script: {instanceID: 10406}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 10800}
+      Script: {instanceID: 10798}
     - Class: 114
-      Script: {instanceID: 10984}
+      Script: {instanceID: 10982}
     - Class: 114
-      Script: {instanceID: 10994}
+      Script: {instanceID: 10992}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 11180}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 11506}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11594}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -662,7 +663,7 @@ ScriptsOnlyBuild:
     className: RestartLevel
   - hash:
       serializedVersion: 2
-      Hash: e2fa0e5d75d9965a40c370da229b0a91
+      Hash: 4882922c8cd19bca0cebb8a2164ea82a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Ice_block
@@ -708,12 +709,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 65b3a3b9a7779d539ec75a3ceddebdba
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: portal_tutorial
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -848,12 +843,6 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: example
-  - hash:
-      serializedVersion: 2
       Hash: 1bd97f0ba3bae005c1c11d73544c87a0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -914,7 +903,7 @@ ScriptsOnlyBuild:
     className: chest
   - hash:
       serializedVersion: 2
-      Hash: bbcc5a04ebf2aaab79e9382b16fd8d95
+      Hash: 1fdb017a19d293c4614ce6f5093112d7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player_attack_health
@@ -1058,7 +1047,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 732bf571d3696da902fbf10650a15c5b
+      Hash: b550ceb4bc37915fe839ae2f6ef39922
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy_move
@@ -1184,10 +1173,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/BayatGames/Free Platform Game Assets/Scenes/0.start.unity
-  - Assets/BayatGames/Free Platform Game Assets/Scenes/1.tutorial.unity
-  - Assets/BayatGames/Free Platform Game Assets/Scenes/2.town.unity
-  - Assets/BayatGames/Free Platform Game Assets/Scenes/3.stage1.unity
-  - Assets/BayatGames/Free Platform Game Assets/Scenes/4.stage2.unity
-  - Assets/BayatGames/Free Platform Game Assets/Scenes/5.stage_infinite.unity
+  - Assets/Scenes/0.menu.unity
+  - Assets/Scenes/1.tutorial.unity
+  - Assets/Scenes/2.town.unity
+  - Assets/Scenes/3.stage1.unity
+  - Assets/Scenes/4.stage2.unity
+  - Assets/Scenes/5.stage_infinite.unity
   playerPath: D:/Git/gameprogramming/Project/PersonalProject/2D_Rpg/2d_rpg.apk
