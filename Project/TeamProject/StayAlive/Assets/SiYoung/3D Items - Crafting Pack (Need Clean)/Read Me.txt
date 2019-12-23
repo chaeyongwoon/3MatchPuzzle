@@ -1,0 +1,43 @@
+3D Items - Crafting Pack
+
+v1.2 Added 90 Food Items: Veggies, Baked goods, Meats, Fruits, Bottles, Cheeses, Barrels and Crates.
+
+v1.1 Added 76 Brewing Items: Cauldrons, Plants, Seeds, Eyes, Mushrooms, Claws, Books and Burlap Sacks.
+
+
+
+To make use of the items pivot points look to the right of the four main control buttons (pan, move, rotate, scale), and you'll see two other buttons.
+
+The first toggles between "Center" or "Pivot", and the second toggles between "Local" or "Global".
+
+Use "Pivot" for the first one and "Local" for the second one.
+
+
+
+Cartoon Asset Pack with a wide range of items for Mining, Lumbering, Cooking, Farming, Foods, Fishing and Exploration.
+704 Items.
+1 Texture 256x256
+Includes example scene with all the items.
+
+
+
+Mining
+Pickaxes, Hammers, Shovels, Buckets, Tongs, Dynamite, Blowers, Ores, Gems, Metal Bars, Anvils, Lanterns.
+
+Farming
+Sheers, Hoes, Fishing Poles, Fishing Hooks, Buckets, Axes, Nails, Stick, Wooden Log, Saws, Threadspools, Needles, Scissors.
+
+Food Items: Veggies, Baked goods, Meats, Fruits, Bottles, Cheeses, Barrels, Crates.
+
+Exploration
+Compases, Rope, Potions, Scrolls, Paper, Quils, Ink, Bones, Keys, Books, Locks.
+
+Dinnerware
+Cups, Plates, Bowls, Forks, Spoons, Knifes.
+
+Brewing
+Cauldrons, Plants, Seeds, Eyes, Mushrooms, Claws, Books, Burlap Sacks.
+
+
+Support Mail
+FrostForgedAssets@gmail.com

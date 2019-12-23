@@ -177,6 +177,7 @@ public class Boss : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(attack2_term);
+
             Thorn_block_group.GetComponent<Rigidbody2D>().constraints
                 = RigidbodyConstraints2D.FreezePositionY;
             Thorn_block_group.transform.position = new Vector3(-10, 30, 0);

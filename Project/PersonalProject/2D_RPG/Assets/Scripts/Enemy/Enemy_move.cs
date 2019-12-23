@@ -114,7 +114,6 @@ public class Enemy_move : MonoBehaviour
         {
             if (state.ToString() == collision.gameObject.GetComponent<player_bullet>().state.ToString()) // 충돌한 총알의 색과 몬스터의 색상이 일치하는지 판단
             {
-
                 Take_damage(DataController.instance.gameData.Damage);
             }
         }

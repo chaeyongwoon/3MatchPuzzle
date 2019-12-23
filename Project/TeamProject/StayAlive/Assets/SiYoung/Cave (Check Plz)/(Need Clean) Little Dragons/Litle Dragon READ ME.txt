@@ -1,0 +1,11 @@
+====READ ME====
+
+Little Dragons > Common > Scripts
+
+스크립트 임포트시 에러로 인해 임시 제거.
+
+이로인해 
+
+Little Dragons > Edior도 지웁니다.
+
+

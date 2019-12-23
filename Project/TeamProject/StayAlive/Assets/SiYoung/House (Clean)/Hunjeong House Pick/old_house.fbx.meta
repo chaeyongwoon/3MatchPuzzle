@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: 1f65265a6f7d869458dd7b2e527ecae4
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box002
+    100002: Box005
+    100004: Box013
+    100006: Box015
+    100008: Box017
+    100010: Box023
+    100012: Box024
+    100014: Box029
+    100016: Box032
+    100018: Box034
+    100020: Box035
+    100022: Box037
+    100024: Box038
+    100026: Box039
+    100028: Box040
+    100030: Box041
+    100032: Box042
+    100034: Box043
+    100036: Box044
+    100038: Box045
+    100040: Box046
+    100042: Box047
+    100044: Box048
+    100046: Box051
+    100048: Cylinder027
+    100050: Cylinder028
+    100052: Cylinder038
+    100054: Cylinder039
+    100056: Cylinder050
+    100058: Cylinder051
+    100060: Cylinder059
+    100062: Cylinder060
+    100064: Cylinder061
+    100066: Cylinder062
+    100068: Cylinder063
+    100070: Cylinder064
+    100072: Cylinder065
+    100074: Cylinder066
+    100076: Cylinder067
+    100078: Cylinder068
+    100080: Cylinder069
+    100082: Cylinder070
+    100084: Cylinder071
+    100086: Cylinder072
+    100088: Cylinder073
+    100090: Cylinder074
+    100092: Cylinder075
+    100094: Cylinder076
+    100096: Cylinder077
+    100098: Cylinder078
+    100100: Cylinder079
+    100102: Cylinder080
+    100104: //RootNode
+    100106: Omni001
+    100108: Plane001
+    100110: Spot001
+    100112: Spot001.Target
+    100114: Spot002
+    100116: Spot002.Target
+    400000: Box002
+    400002: Box005
+    400004: Box013
+    400006: Box015
+    400008: Box017
+    400010: Box023
+    400012: Box024
+    400014: Box029
+    400016: Box032
+    400018: Box034
+    400020: Box035
+    400022: Box037
+    400024: Box038
+    400026: Box039
+    400028: Box040
+    400030: Box041
+    400032: Box042
+    400034: Box043
+    400036: Box044
+    400038: Box045
+    400040: Box046
+    400042: Box047
+    400044: Box048
+    400046: Box051
+    400048: Cylinder027
+    400050: Cylinder028
+    400052: Cylinder038
+    400054: Cylinder039
+    400056: Cylinder050
+    400058: Cylinder051
+    400060: Cylinder059
+    400062: Cylinder060
+    400064: Cylinder061
+    400066: Cylinder062
+    400068: Cylinder063
+    400070: Cylinder064
+    400072: Cylinder065
+    400074: Cylinder066
+    400076: Cylinder067
+    400078: Cylinder068
+    400080: Cylinder069
+    400082: Cylinder070
+    400084: Cylinder071
+    400086: Cylinder072
+    400088: Cylinder073
+    400090: Cylinder074
+    400092: Cylinder075
+    400094: Cylinder076
+    400096: Cylinder077
+    400098: Cylinder078
+    400100: Cylinder079
+    400102: Cylinder080
+    400104: //RootNode
+    400106: Omni001
+    400108: Plane001
+    400110: Spot001
+    400112: Spot001.Target
+    400114: Spot002
+    400116: Spot002.Target
+    2100000: 'Material #349'
+    2100002: 'Material #2'
+    2100004: 'Material #48'
+    2100006: 'Material #331'
+    2100008: 03 - Default
+    2100010: 'Material #348'
+    2100012: 02 - Default
+    2100014: 'Material #317'
+    2100016: 'Material #352'
+    2100018: 'Material #353'
+    2100020: 'Material #4'
+    2100022: 'Material #5'
+    2100024: 'Material #73'
+    2100026: 'Material #12'
+    2100028: 'Material #74'
+    2100030: 'Material #345'
+    2300000: Box002
+    2300002: Box005
+    2300004: Box013
+    2300006: Box015
+    2300008: Box017
+    2300010: Box023
+    2300012: Box024
+    2300014: Box029
+    2300016: Box032
+    2300018: Box034
+    2300020: Box035
+    2300022: Box037
+    2300024: Box038
+    2300026: Box039
+    2300028: Box040
+    2300030: Box041
+    2300032: Box042
+    2300034: Box043
+    2300036: Box044
+    2300038: Box045
+    2300040: Box046
+    2300042: Box047
+    2300044: Box048
+    2300046: Box051
+    2300048: Cylinder027
+    2300050: Cylinder028
+    2300052: Cylinder038
+    2300054: Cylinder039
+    2300056: Cylinder050
+    2300058: Cylinder051
+    2300060: Cylinder059
+    2300062: Cylinder060
+    2300064: Cylinder061
+    2300066: Cylinder062
+    2300068: Cylinder063
+    2300070: Cylinder064
+    2300072: Cylinder065
+    2300074: Cylinder066
+    2300076: Cylinder067
+    2300078: Cylinder068
+    2300080: Cylinder069
+    2300082: Cylinder070
+    2300084: Cylinder071
+    2300086: Cylinder072
+    2300088: Cylinder073
+    2300090: Cylinder074
+    2300092: Cylinder075
+    2300094: Cylinder076
+    2300096: Cylinder077
+    2300098: Cylinder078
+    2300100: Cylinder079
+    2300102: Cylinder080
+    2300104: Plane001
+    3300000: Box002
+    3300002: Box005
+    3300004: Box013
+    3300006: Box015
+    3300008: Box017
+    3300010: Box023
+    3300012: Box024
+    3300014: Box029
+    3300016: Box032
+    3300018: Box034
+    3300020: Box035
+    3300022: Box037
+    3300024: Box038
+    3300026: Box039
+    3300028: Box040
+    3300030: Box041
+    3300032: Box042
+    3300034: Box043
+    3300036: Box044
+    3300038: Box045
+    3300040: Box046
+    3300042: Box047
+    3300044: Box048
+    3300046: Box051
+    3300048: Cylinder027
+    3300050: Cylinder028
+    3300052: Cylinder038
+    3300054: Cylinder039
+    3300056: Cylinder050
+    3300058: Cylinder051
+    3300060: Cylinder059
+    3300062: Cylinder060
+    3300064: Cylinder061
+    3300066: Cylinder062
+    3300068: Cylinder063
+    3300070: Cylinder064
+    3300072: Cylinder065
+    3300074: Cylinder066
+    3300076: Cylinder067
+    3300078: Cylinder068
+    3300080: Cylinder069
+    3300082: Cylinder070
+    3300084: Cylinder071
+    3300086: Cylinder072
+    3300088: Cylinder073
+    3300090: Cylinder074
+    3300092: Cylinder075
+    3300094: Cylinder076
+    3300096: Cylinder077
+    3300098: Cylinder078
+    3300100: Cylinder079
+    3300102: Cylinder080
+    3300104: Plane001
+    4300000: Plane001
+    4300002: Cylinder027
+    4300004: Cylinder028
+    4300006: Cylinder038
+    4300008: Cylinder039
+    4300010: Box002
+    4300012: Box005
+    4300014: Box013
+    4300016: Box015
+    4300018: Box017
+    4300020: Box023
+    4300022: Box024
+    4300024: Box029
+    4300026: Box032
+    4300028: Box034
+    4300030: Box035
+    4300032: Cylinder050
+    4300034: Cylinder051
+    4300036: Box037
+    4300038: Box038
+    4300040: Box039
+    4300042: Box040
+    4300044: Box041
+    4300046: Box042
+    4300048: Box043
+    4300050: Box044
+    4300052: Box045
+    4300054: Box046
+    4300056: Box047
+    4300058: Box048
+    4300060: Cylinder059
+    4300062: Cylinder060
+    4300064: Cylinder061
+    4300066: Cylinder062
+    4300068: Cylinder063
+    4300070: Cylinder064
+    4300072: Cylinder065
+    4300074: Cylinder066
+    4300076: Cylinder067
+    4300078: Cylinder068
+    4300080: Cylinder069
+    4300082: Cylinder070
+    4300084: Box051
+    4300086: Cylinder071
+    4300088: Cylinder072
+    4300090: Cylinder073
+    4300092: Cylinder074
+    4300094: Cylinder075
+    4300096: Cylinder076
+    4300098: Cylinder077
+    4300100: Cylinder078
+    4300102: Cylinder079
+    4300104: Cylinder080
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

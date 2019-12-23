@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: e6642448c51597e4d98c8d4f2c9fd20f
+timeCreated: 1479806261
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Giant Caterpillar
+    100002: //RootNode
+    100004: Rig
+    100006: RigHead
+    100008: RigHeadGizmo
+    100010: RigJawBtm
+    100012: RigJawBtmGizmo
+    100014: RigJawTop
+    100016: RigJawTopGizmo
+    100018: RigLArm1
+    100020: RigLArm1Gizmo
+    100022: RigLFeeler1
+    100024: RigLFeeler1Gizmo
+    100026: RigLFeeler2
+    100028: RigLFeeler2Gizmo
+    100030: RigLFeeler3
+    100032: RigLFeeler3Gizmo
+    100034: RigLFeeler4
+    100036: RigLFeeler4Gizmo
+    100038: RigLLeg1
+    100040: RigLLeg1Gizmo
+    100042: RigLTailSpike
+    100044: RigLTailSpikeGizmo
+    100046: RigNeck1
+    100048: RigNeck2
+    100050: RigPelvis
+    100052: RigPelvisGizmo
+    100054: RigRArm1
+    100056: RigRArm1Gizmo
+    100058: RigRFeeler1
+    100060: RigRFeeler1Gizmo
+    100062: RigRFeeler2
+    100064: RigRFeeler2Gizmo
+    100066: RigRFeeler3
+    100068: RigRFeeler3Gizmo
+    100070: RigRFeeler4
+    100072: RigRFeeler4Gizmo
+    100074: RigRibcage
+    100076: RigRibcageGizmo
+    100078: RigRLeg1
+    100080: RigRLeg1Gizmo
+    100082: RigRTailSpike
+    100084: RigRTailSpikeGizmo
+    100086: RigSpine1
+    100088: RigSpine2
+    100090: RigTail1
+    100092: RigTail2
+    100094: RigTail3
+    100096: Tail1Gizmo
+    100098: TailGizmo
+    100100: TailGizmo 1
+    400000: Giant Caterpillar
+    400002: //RootNode
+    400004: Rig
+    400006: RigHead
+    400008: RigHeadGizmo
+    400010: RigJawBtm
+    400012: RigJawBtmGizmo
+    400014: RigJawTop
+    400016: RigJawTopGizmo
+    400018: RigLArm1
+    400020: RigLArm1Gizmo
+    400022: RigLFeeler1
+    400024: RigLFeeler1Gizmo
+    400026: RigLFeeler2
+    400028: RigLFeeler2Gizmo
+    400030: RigLFeeler3
+    400032: RigLFeeler3Gizmo
+    400034: RigLFeeler4
+    400036: RigLFeeler4Gizmo
+    400038: RigLLeg1
+    400040: RigLLeg1Gizmo
+    400042: RigLTailSpike
+    400044: RigLTailSpikeGizmo
+    400046: RigNeck1
+    400048: RigNeck2
+    400050: RigPelvis
+    400052: RigPelvisGizmo
+    400054: RigRArm1
+    400056: RigRArm1Gizmo
+    400058: RigRFeeler1
+    400060: RigRFeeler1Gizmo
+    400062: RigRFeeler2
+    400064: RigRFeeler2Gizmo
+    400066: RigRFeeler3
+    400068: RigRFeeler3Gizmo
+    400070: RigRFeeler4
+    400072: RigRFeeler4Gizmo
+    400074: RigRibcage
+    400076: RigRibcageGizmo
+    400078: RigRLeg1
+    400080: RigRLeg1Gizmo
+    400082: RigRTailSpike
+    400084: RigRTailSpikeGizmo
+    400086: RigSpine1
+    400088: RigSpine2
+    400090: RigTail1
+    400092: RigTail2
+    400094: RigTail3
+    400096: Tail1Gizmo
+    400098: TailGizmo
+    400100: TailGizmo 1
+    4300000: Giant Caterpillar
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Giant Caterpillar
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

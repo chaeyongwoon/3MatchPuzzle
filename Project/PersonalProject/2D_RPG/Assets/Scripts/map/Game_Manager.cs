@@ -279,7 +279,7 @@ public class Game_Manager : MonoBehaviour
         Destroy(obj[4]);
 
 
-        SceneManager.LoadScene("0.start");
+        SceneManager.LoadScene("0.menu");
     }
     public void Quit() // 게임종료 버튼 함수
     {
