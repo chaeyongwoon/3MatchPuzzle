@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{26BD8A78-544E-373C-9EDB-336334B2D740}</ProjectGuid>
+    <ProjectGuid>{10F5E87F-FF72-BD1C-0467-000A38428C3B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -66,31 +66,31 @@
     <Compile Include="Assets\Script\Block.cs" />
     <Compile Include="Assets\Script\Manager.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon_완성/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Git/3MatchPuzzle/3Match_ChaeYongWoon/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/2019.2.7f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
